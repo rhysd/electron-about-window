@@ -21,6 +21,7 @@ export default function openAboutWindow(icon_path: string, copyright: string, ho
     win.webContents.once('dom-ready', () => {
         win.webContents.send('about-window:info', icon_path, copyright, homepage);
     });
+    win.setMenu(null);
 
     return win;
 }

@@ -1,0 +1,31 @@
+{
+  "name": "about-window",
+  "version": "0.0.1",
+  "description": "'About App' window for Electron application",
+  "scripts": {
+    "dep": "npm install && $(npm bin)/tsd install",
+    "example": "npm run dep && $(npm bin)/electron $(npm root)/example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhysd/about-window.git"
+  },
+  "keywords": [
+    "Electron",
+    "electron-component"
+  ],
+  "author": "rhysd <lin90162@yahoo.co.jp>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rhysd/about-window/issues"
+  },
+  "homepage": "https://github.com/rhysd/about-window#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.1",
+    "tsc": "^1.20150623.0",
+    "tsd": "^0.6.5"
+  },
+  "dependencies": {
+    "object-assign": "^4.0.1"
+  }
+}

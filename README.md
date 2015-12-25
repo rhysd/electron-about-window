@@ -1,5 +1,5 @@
-'About App' window for [Electron](https://github.com/atom/electron) apps
-========================================================================
+'About This App' window for [Electron](https://github.com/atom/electron) apps
+=============================================================================
 
 This package provides 'About This App' window for [Electron](https://github.com/atom/electron) applications.
 
@@ -19,7 +19,7 @@ export default function openAboutWindow(
     copyright: string,
     homepage: string,
     user_opt: BrowserWindowOptions = {}
-) : BrowserWindow
+): BrowserWindow
 ```
 
 ### Linux

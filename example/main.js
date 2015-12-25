@@ -11,7 +11,6 @@ app.once('ready', function() {
     var w = new BrowserWindow();
     w.once('closed', function() { w = null; });
     w.loadURL('file://' + join(__dirname, 'index.html'));
-    w.webContents.openDevTools({detach: true});
 
     const menu = Menu.buildFromTemplate([
         {

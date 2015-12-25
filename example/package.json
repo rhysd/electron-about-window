@@ -1,0 +1,9 @@
+{
+  "name": "about-window-module-example-app",
+  "productName": "Example",
+  "version": "0.0.1",
+  "main": "main.js",
+  "scripts": {
+    "app": "../../node_modules/.bin/electron ."
+  }
+}

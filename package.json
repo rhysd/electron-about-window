@@ -1,6 +1,6 @@
 {
   "name": "about-window",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "'About App' window for Electron application",
   "scripts": {
     "dep": "npm install && $(npm bin)/tsd install",

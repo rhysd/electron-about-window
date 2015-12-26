@@ -40,6 +40,11 @@ export default function openAboutWindow(
 
 ![Windows screenshot](https://raw.githubusercontent.com/rhysd/ss/master/about-window/about-window-windows.jpg)
 
+## TODO
+
+- [ ] Get app information via package.json and remove parameters of `openAboutWindow`.
+- [ ] Add description
+
 ## License
 
 [MIT License](/LICENSE.txt).

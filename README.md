@@ -34,7 +34,7 @@ export default function openAboutWindow(
 
 ### OS X
 
-To be added.
+![OS X screenshot](https://raw.githubusercontent.com/rhysd/ss/master/about-window/about-window-os-x.png)
 
 ### Windows
 

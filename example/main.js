@@ -17,7 +17,7 @@ app.once('ready', function() {
             label: 'Example',
             submenu: [
                 {
-                    label: 'About',
+                    label: 'About This App',
                     click: function() {
                         openAboutWindow(
                             join(__dirname, 'icon.png'),

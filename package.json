@@ -4,7 +4,9 @@
   "description": "'About App' window for Electron application",
   "scripts": {
     "dep": "npm install && $(npm bin)/tsd install",
-    "example": "npm run dep && $(npm bin)/electron $(npm prefix)/example"
+    "build": "$(npm bin)/tsc -p $(npm prefix)/src",
+    "example": "$(npm bin)/electron $(npm prefix)/example",
+    "start": "npm run dep && npm run build && npm run example"
   },
   "repository": {
     "type": "git",

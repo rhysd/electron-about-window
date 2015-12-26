@@ -8,7 +8,7 @@ You can check [example app](example) to know how to use this package.
 ```sh
 $ git clone https://github.com/rhysd/about-window.git
 $ cd about-window
-$ npm run example
+$ npm start
 ```
 
 You can install this module via [npm](https://www.npmjs.com/).

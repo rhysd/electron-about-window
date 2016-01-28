@@ -1,6 +1,6 @@
 {
   "name": "about-window",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "'About App' window for Electron application",
   "scripts": {
     "dep": "npm install && $(npm bin)/tsd install",
@@ -25,7 +25,7 @@
   "devDependencies": {
     "electron-prebuilt": "^0.36.1",
     "tsc": "^1.20150623.0",
-    "tsd": "^0.6.5"
+    "typings": "^0.6.3"
   },
   "dependencies": {
     "object-assign": "^4.0.1"

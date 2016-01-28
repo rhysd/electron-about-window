@@ -2,7 +2,7 @@ import {BrowserWindow, app, ipcMain} from 'electron';
 import {join} from 'path';
 import assign = require('object-assign');
 
-export default function openAboutWindow(icon_path: string, copyright: string, homepage: string, user_opt: GitHubElectron.BrowserWindowOptions = {}) {
+export default function openAboutWindow(icon_path: string, copyright: string, homepage: string, user_opt: Electron.BrowserWindowOptions = {}) {
     const index_html = 'file://' + join(__dirname, 'about.html');
 
     const options = assign({

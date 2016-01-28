@@ -1,0 +1,7 @@
+{
+  "ambientDependencies": {
+    "github-electron": "github:DefinitelyTyped/DefinitelyTyped/github-electron/github-electron.d.ts#c4826e748ddfc4c3b96dfe9636d6bd1b062baf8b",
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#1da639a106527e0c4010b354a1efe52a3059a291",
+    "object-assign": "github:DefinitelyTyped/DefinitelyTyped/object-assign/object-assign.d.ts#1da639a106527e0c4010b354a1efe52a3059a291"
+  }
+}

@@ -18,13 +18,13 @@ app.once('ready', function() {
             submenu: [
                 {
                     label: 'About This App',
-                    click: function() {
-                        openAboutWindow(
-                            join(__dirname, 'icon.png'),
-                            'Copyright (c) 2015 rhysd',
-                            'https://github.com/rhysd/about-window'
-                        );
-                    }
+                    click: () => openAboutWindow(
+                        {
+                            icon_path: join(__dirname, 'icon.png'),
+                            copyright: 'Copyright (c) 2015 rhysd',
+                            homepage: 'https://github.com/rhysd/about-window'
+                        }
+                    )
                 }
             ]
         }

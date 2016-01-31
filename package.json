@@ -3,9 +3,9 @@
   "version": "0.1.1",
   "description": "'About App' window for Electron application",
   "scripts": {
-    "dep": "npm install && $(npm bin)/tsd install",
-    "build": "$(npm bin)/tsc -p $(npm prefix)/src",
-    "example": "$(npm bin)/electron $(npm prefix)/example",
+    "dep": "npm install && typings install",
+    "build": "tsc -p $(npm prefix)/src",
+    "example": "electron $(npm prefix)/example",
     "start": "npm run dep && npm run build && npm run example"
   },
   "repository": {
@@ -24,7 +24,7 @@
   "homepage": "https://github.com/rhysd/about-window#readme",
   "devDependencies": {
     "electron-prebuilt": "^0.36.1",
-    "tsc": "^1.20150623.0",
+    "typescript": "^1.7.5",
     "typings": "^0.6.3"
   },
   "dependencies": {

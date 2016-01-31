@@ -10,6 +10,7 @@
   - [ ] Description
 - [ ] Gather package information from package.json
 - [ ] Adjust window size to its contents automatically
+- [ ] CSS customizability
 
 You can check [example app](example) to know how to use this package.
 

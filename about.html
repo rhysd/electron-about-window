@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes" />
-    <title>About</title>
+    <title>About This App</title>
     <style>
       body, html {
         width: 100%;
@@ -41,40 +41,5 @@
     <h3 class="copyright"></h3>
     <table class="versions"></table>
   </body>
-  <script>
-    (function() {
-      var electron = require('electron');
-      var shell = electron.shell;
-      var ipc = electron.ipcRenderer;
-      var remote = electron.remote;
-      var app = remote.require('app');
-      ipc.on('about-window:info', function (_, icon_path, copyright, homepage) {
-        document
-          .querySelector('.logo')
-          .addEventListener(
-            'click',
-            function() {
-              electron.shell.openExternal(homepage);
-            }
-          );
-        var name = app.getName();
-        document.title = 'About ' + name;
-        document.querySelector('.title').innerText = 'About ' + name + ' ' + app.getVersion();
-        document.querySelector('.copyright').innerText = copyright;
-        document.getElementById('app-icon').src = icon_path;
-      });
-      var versions = document.querySelector('.versions');
-      var vs = process.versions;
-      ['electron', 'chrome', 'node', 'v8'].forEach(function(name) {
-        var tr = document.createElement('tr');
-        var name_td = document.createElement('td');
-        name_td.innerText = name;
-        tr.appendChild(name_td);
-        var version_td = document.createElement('td');
-        version_td.innerText = ' : ' + vs[name];
-        tr.appendChild(version_td);
-        versions.appendChild(tr);
-      });
-    })();
-  </script>
+  <script src="./renderer.js"></script>
 </html>

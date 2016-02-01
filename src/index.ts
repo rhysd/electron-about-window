@@ -1,3 +1,5 @@
+/// <reference path="../typings/main.d.ts" />
+
 import {BrowserWindow} from 'electron';
 import {join} from 'path';
 import assign = require('object-assign');

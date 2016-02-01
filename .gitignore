@@ -2,4 +2,6 @@
 npm-debug.log
 /index.js
 /index.js.map
+/renderer.js
+/renderer.js.map
 /typings

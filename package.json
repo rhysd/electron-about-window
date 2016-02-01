@@ -4,7 +4,9 @@
   "description": "'About App' window for Electron application",
   "scripts": {
     "dep": "npm install && typings install",
-    "build": "tsc -p $(npm prefix)/src",
+    "build-main": "tsc --sourceMap --module commonjs $(npm prefix)/src/index.ts --outDir .",
+    "build-renderer": "tsc --sourceMap --module commonjs $(npm prefix)/src/renderer.ts --outDir .",
+    "build": "npm run build-main && npm run build-renderer",
     "example": "electron $(npm prefix)/example",
     "start": "npm run dep && npm run build && npm run example"
   },

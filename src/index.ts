@@ -1,15 +1,9 @@
 /// <reference path="../typings/main.d.ts" />
+/// <reference path="./lib.d.ts" />
 
 import {BrowserWindow} from 'electron';
 import {join} from 'path';
 import assign = require('object-assign');
-
-export interface AboutWindowInfo {
-    icon_path: string;
-    copy_right: string;
-    homepage: string;
-    win_options?: Electron.BrowserWindowOptions;
-}
 
 export default function openAboutWindow(info: AboutWindowInfo) {
     'use strict';
@@ -33,7 +27,7 @@ export default function openAboutWindow(info: AboutWindowInfo) {
 
     win.loadURL(index_html);
     win.webContents.once('dom-ready', () => {
-        win.webContents.send('about-window:info', info.icon_path, info.copy_right, info.homepage);
+        win.webContents.send('about-window:info', info);
     });
     win.setMenu(null);
 

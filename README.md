@@ -31,7 +31,7 @@ Only one function is exported as default.  Please see [TypeScript type definitio
 ```typescript
 export default function openAboutWindow({
     icon_path: string,
-    copy_right: string,
+    copyright: string,
     homepage: string,
     user_opt?: BrowserWindowOptions,
 }): BrowserWindow

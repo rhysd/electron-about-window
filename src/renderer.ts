@@ -1,19 +1,20 @@
-/// <reference path="../typings/main.d.ts" />
+/// <reference path="../typings/browser.d.ts" />
+/// <reference path="./lib.d.ts" />
 
 import {shell, ipcRenderer, remote} from 'electron';
 
-ipcRenderer.on('about-window:info', (_, icon_path, copyright, homepage) => {
+ipcRenderer.on('about-window:info', (_, info: AboutWindowInfo) => {
     document
         .querySelector('.logo')
-        .addEventListener('click', () => shell.openExternal(homepage));
+        .addEventListener('click', () => shell.openExternal(info.homepage));
     const name = remote.app.getName();
     document.title = 'About ' + name;
     const title_elem = document.querySelector('.title') as HTMLDivElement;
     title_elem.innerText = `About ${name} ${remote.app.getVersion()}`;
     const copyright_elem = document.querySelector('.copyright') as HTMLDivElement;
-    copyright_elem.innerText = copyright;
+    copyright_elem.innerText = info.copyright;
     const icon_elem = document.getElementById('app-icon') as HTMLImageElement;
-    icon_elem.src = icon_path;
+    icon_elem.src = info.icon_path;
 });
 
 const versions = document.querySelector('.versions');

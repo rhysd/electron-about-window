@@ -64,7 +64,7 @@ $ npm start
 | `license` | License of the application.  If not specified, 'license' entry of package.json is used instead. This property is used when `copyright` is not specified. **Optional** | string |
 | `win_options` | Options of 'About This App' window.  It is merged into default options. **Optional** | [BrowserWindow options object](https://github.com/atom/electron/blob/master/docs/api/browser-window.md#new-browserwindowoptions) |
 
-## Screen Shots (0.1.1)
+## Screen Shots
 
 ### Linux
 

@@ -34,6 +34,15 @@
       .copyright,.versions {
         color: #999999;
       }
+      .link {
+        cursor: pointer;
+        color: #80a0c2;
+      }
+      #bug-report-link {
+        position: absolute;
+        right: 0.5em;
+        bottom: 0.5em;
+      }
     </style>
   </head>
   <body>
@@ -44,6 +53,10 @@
     <h3 class="description"></h2>
     <div class="copyright"></div>
     <table class="versions"></table>
+    <footer class="footer">
+      <div id="bug-report-link" class="link">
+      </div>
+    </footer>
   </body>
   <script src="./renderer.js"></script>
 </html>

@@ -18,16 +18,11 @@ app.once('ready', function() {
             submenu: [
                 {
                     label: 'About This App',
-                    click: () => {
-                        const win = openAboutWindow(
-                            {
+                    click: () => openAboutWindow({
                                 icon_path: join(__dirname, 'icon.png'),
                                 copyright: 'Copyright (c) 2015 rhysd',
                                 package_json_dir: __dirname
-                            }
-                        );
-                        win.webContents.openDevTools({detach: true});
-                    }
+                            })
                 }
             ]
         }

@@ -20,8 +20,7 @@ app.once('ready', function() {
                     label: 'About This App',
                     click: () => openAboutWindow({
                                 icon_path: join(__dirname, 'icon.png'),
-                                copyright: 'Copyright (c) 2015 rhysd',
-                                package_json_dir: __dirname
+                                copyright: 'Copyright (c) 2015 rhysd'
                             })
                 }
             ]

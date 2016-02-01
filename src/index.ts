@@ -1,21 +1,58 @@
 /// <reference path="../typings/main.d.ts" />
 /// <reference path="./lib.d.ts" />
 
-import {BrowserWindow} from 'electron';
-import {join} from 'path';
+import {app, BrowserWindow} from 'electron';
+import * as path from 'path';
+import {statSync} from 'fs';
 import assign = require('object-assign');
+
+function loadPackageJson(pkg_path: string): PackageJson {
+    'use strict';
+    try {
+        return require(path.join(pkg_path, 'package.json'));
+    } catch (e) {
+        return null;
+    }
+}
+
+function detectPackageJson(specified_path: string) {
+    'use strict';
+
+    if (specified_path) {
+        return loadPackageJson(specified_path);
+    }
+
+    const app_name = app.getName();
+
+    for (let mod_path of (module as any).paths) {
+        if (!path.isAbsolute(mod_path)) {
+            continue;
+        }
+
+        const p = path.join(mod_path, '..', 'package.json');
+        try {
+            const stats = statSync(p);
+            if (stats.isFile()) {
+                const pkg = loadPackageJson(p);
+                if (pkg !== null && pkg.productName === app_name) {
+                    return pkg;
+                }
+            }
+        } catch (e) {
+            // File not found.  Ignored.
+        }
+    }
+
+    // Note: Not found.
+    return null;
+}
 
 function injectInfoFromPackageJson(info: AboutWindowInfo) {
     'use strict';
 
-    if (!info.package_json_dir) {
-        return info;
-    }
-
-    let pkg: PackageJson;
-    try {
-        pkg = require(join(info.package_json_dir, 'package.json'));
-    } catch (e) {
+    const pkg = detectPackageJson(info.package_json_dir);
+    if (pkg === null) {
+        // Note: Give up.
         return info;
     }
 
@@ -39,7 +76,7 @@ function injectInfoFromPackageJson(info: AboutWindowInfo) {
 export default function openAboutWindow(info: AboutWindowInfo) {
     'use strict';
 
-    const index_html = 'file://' + join(__dirname, 'about.html');
+    const index_html = 'file://' + path.join(__dirname, 'about.html');
 
     const options = assign(
         {

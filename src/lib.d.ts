@@ -4,6 +4,7 @@ interface LicenseEntry {
 }
 
 interface PackageJson {
+    productName?: string;
     description?: string;
     homepage?: string;
     license?: string | LicenseEntry;

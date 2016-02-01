@@ -11,6 +11,12 @@
   "license": "MIT",
   "homepage": "https://github.com/rhysd/about-window#readme",
   "scripts": {
-    "app": "../../node_modules/.bin/electron ."
+    "start": "electron ."
+  },
+  "dependencies": {
+    "about-window": "*"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.7"
   }
 }

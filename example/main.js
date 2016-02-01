@@ -2,7 +2,7 @@ var electron = require('electron');
 var app = electron.app;
 var Menu = electron.Menu;
 var BrowserWindow = electron.BrowserWindow;
-var openAboutWindow = require('..').default;
+var openAboutWindow = require('about-window').default;
 var join = require('path').join;
 
 app.once('window-all-closed',function() { app.quit(); });

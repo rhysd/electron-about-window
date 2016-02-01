@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/rhysd/about-window#readme",
   "devDependencies": {
-    "electron-prebuilt": "^0.36.1",
     "typescript": "^1.7.5",
     "typings": "^0.6.3"
   },

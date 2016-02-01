@@ -9,17 +9,22 @@ import assign = require('object-assign');
 function loadPackageJson(pkg_path: string): PackageJson {
     'use strict';
     try {
-        return require(path.join(pkg_path, 'package.json'));
+        return require(pkg_path);
     } catch (e) {
         return null;
     }
 }
 
-function detectPackageJson(specified_path: string) {
+function detectPackageJson(specified_dir: string) {
     'use strict';
 
-    if (specified_path) {
-        return loadPackageJson(specified_path);
+    if (specified_dir) {
+        const pkg = loadPackageJson(path.join(specified_dir, 'package.json'));
+        if (pkg !== null) {
+            return pkg;
+        } else {
+            console.warn('about-window: package.json is not found in specified directory path: ' + specified_dir);
+        }
     }
 
     const app_name = app.getName();

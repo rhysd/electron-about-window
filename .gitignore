@@ -5,3 +5,4 @@ npm-debug.log
 /renderer.js
 /renderer.js.map
 /typings
+/example/node_modules

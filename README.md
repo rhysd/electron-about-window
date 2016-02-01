@@ -13,14 +13,6 @@
 - [ ] Adjust window size to its contents automatically
 - [ ] CSS customizability
 
-You can check [example app](example) to know how to use this package.
-
-```sh
-$ git clone https://github.com/rhysd/about-window.git
-$ cd about-window
-$ npm start
-```
-
 You can install this module via [npm](https://www.npmjs.com/).
 
 ```sh
@@ -48,6 +40,15 @@ Only `icon_path` property is required, others are optional.  I recommend to spec
 openAboutWindow({
     icon_path: 'path/to/icon.png'
 });
+```
+
+You can check [example app](example) to know how to use this package.
+
+```sh
+$ git clone https://github.com/rhysd/about-window.git
+$ cd about-window
+$ npm install
+$ npm start
 ```
 
 ### Parameter's properties of `openAboutWindow()`

@@ -16,7 +16,8 @@
   },
   "keywords": [
     "Electron",
-    "electron-component"
+    "electron-component",
+    "about this app"
   ],
   "author": "rhysd <lin90162@yahoo.co.jp>",
   "license": "MIT",

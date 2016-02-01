@@ -23,8 +23,7 @@ app.once('ready', function() {
                             {
                                 icon_path: join(__dirname, 'icon.png'),
                                 copyright: 'Copyright (c) 2015 rhysd',
-                                description: 'This is an example app for about-window module.',
-                                homepage: 'https://github.com/rhysd/about-window'
+                                package_json_dir: __dirname
                             }
                         );
                         win.webContents.openDevTools({detach: true});

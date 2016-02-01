@@ -4,23 +4,27 @@
 import {shell, ipcRenderer, remote} from 'electron';
 
 ipcRenderer.on('about-window:info', (_, info: AboutWindowInfo) => {
-    document
-        .querySelector('.logo')
-        .addEventListener('click', () => shell.openExternal(info.homepage));
-
+    console.log(info);
     const app_name = remote.app.getName();
     document.title = `About ${app_name}`;
 
     const title_elem = document.querySelector('.title') as HTMLHeadingElement;
     title_elem.innerText = `${app_name} ${remote.app.getVersion()}`;
 
-    const copyright_elem = document.querySelector('.copyright') as HTMLDivElement;
-    copyright_elem.innerText = info.copyright;
+    if (info.homepage) {
+        document
+            .querySelector('.logo')
+            .addEventListener('click', () => shell.openExternal(info.homepage));
+    }
+
+    if (info.copyright) {
+        const copyright_elem = document.querySelector('.copyright') as HTMLDivElement;
+        copyright_elem.innerText = info.copyright;
+    }
 
     const icon_elem = document.getElementById('app-icon') as HTMLImageElement;
     icon_elem.src = info.icon_path;
 
-    console.log(info);
     if (info.description) {
         const desc_elem = document.querySelector('.description') as HTMLHeadingElement;
         desc_elem.innerText = info.description;

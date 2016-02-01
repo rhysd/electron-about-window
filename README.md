@@ -7,7 +7,7 @@
   - [x] Icon path
   - [x] Copy right
   - [x] App name and Versions
-  - [ ] Description
+  - [x] Description
 - [ ] Gather package information from package.json
 - [ ] Adjust window size to its contents automatically
 - [ ] CSS customizability
@@ -29,13 +29,16 @@ $ npm install about-window
 Only one function is exported as default.  Please see [TypeScript type definition](index.d.ts).
 
 ```typescript
-export default function openAboutWindow({
-    icon_path: string,
-    copyright: string,
-    homepage: string,
-    user_opt?: BrowserWindowOptions,
+export default function openAboutWindow(info: {
+    icon_path: string;
+    copyright: string;
+    description?: string;
+    homepage: string;
+    win_options?: BrowserWindowOptions;
 }): BrowserWindow
 ```
+
+## Screen Shots (0.1.1)
 
 ### Linux
 

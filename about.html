@@ -24,21 +24,25 @@
         width: 200px;
         cursor: pointer;
       }
-      .title,.copyright {
+      .title,.copyright,.description {
         margin: 0.2em;
       }
       .versions {
         border-collapse: collapse;
         margin-top: 1em;
       }
+      .copyright,.versions {
+        color: #999999;
+      }
     </style>
   </head>
   <body>
+    <h2 class="title"></h2>
     <div class="logo">
       <img id="app-icon" height="200px" />
     </div>
-    <h2 class="title"></h2>
-    <h3 class="copyright"></h3>
+    <h3 class="description"></h2>
+    <div class="copyright"></div>
     <table class="versions"></table>
   </body>
   <script src="./renderer.js"></script>

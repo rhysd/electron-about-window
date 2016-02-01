@@ -7,14 +7,24 @@ ipcRenderer.on('about-window:info', (_, info: AboutWindowInfo) => {
     document
         .querySelector('.logo')
         .addEventListener('click', () => shell.openExternal(info.homepage));
-    const name = remote.app.getName();
-    document.title = 'About ' + name;
-    const title_elem = document.querySelector('.title') as HTMLDivElement;
-    title_elem.innerText = `About ${name} ${remote.app.getVersion()}`;
+
+    const app_name = remote.app.getName();
+    document.title = `About ${app_name}`;
+
+    const title_elem = document.querySelector('.title') as HTMLHeadingElement;
+    title_elem.innerText = `${app_name} ${remote.app.getVersion()}`;
+
     const copyright_elem = document.querySelector('.copyright') as HTMLDivElement;
     copyright_elem.innerText = info.copyright;
+
     const icon_elem = document.getElementById('app-icon') as HTMLImageElement;
     icon_elem.src = info.icon_path;
+
+    console.log(info);
+    if (info.description) {
+        const desc_elem = document.querySelector('.description') as HTMLHeadingElement;
+        desc_elem.innerText = info.description;
+    }
 });
 
 const versions = document.querySelector('.versions');

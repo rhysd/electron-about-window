@@ -11,7 +11,7 @@
 - [x] Gather package information from package.json
 - [x] Automatically detect package.json
 - [ ] Adjust window size to its contents automatically
-- [ ] CSS customizability
+- [x] CSS customizability
 
 You can install this module via [npm](https://www.npmjs.com/).
 
@@ -63,6 +63,8 @@ $ npm start
 | `description` | Description of the application.  If not specified, 'description' entry of package.json is used instead. **Optional** | string |
 | `license` | License of the application.  If not specified, 'license' entry of package.json is used instead. This property is used when `copyright` is not specified. **Optional** | string |
 | `win_options` | Options of 'About This App' window.  It is merged into default options. **Optional** | [BrowserWindow options object](https://github.com/atom/electron/blob/master/docs/api/browser-window.md#new-browserwindowoptions) |
+| `css_path` | Path to user-defined CSS file.  It will be inserted to DOM of the window. **Optional** | string |
+| `open_devtools` | For debug purpose, Chrome DevTools will start when the window is opened **Optional** | boolean |
 
 ## Screen Shots
 

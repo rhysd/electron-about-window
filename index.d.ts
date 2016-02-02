@@ -7,6 +7,8 @@ export interface AboutWindowInfo {
     description?: string;
     license?: string;
     win_options?: Electron.BrowserWindowOptions;
+    css_path?: string;
+    open_devtools?: boolean;
 }
 
 export default function openAboutWindow(into: AboutWindowInfo): Electron.BrowserWindow;

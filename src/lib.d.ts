@@ -22,5 +22,7 @@ interface AboutWindowInfo {
     license?: string;
     bug_report_url?: string;
     win_options?: Electron.BrowserWindowOptions;
+    css_path?: string;
+    open_devtools?: boolean;
 }
 

@@ -39,6 +39,13 @@ ipcRenderer.on('about-window:info', (_, info: AboutWindowInfo) => {
             shell.openExternal(info.bug_report_url);
         });
     }
+
+    if (info.css) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = info.css;
+        document.head.appendChild(link);
+    }
 });
 
 const versions = document.querySelector('.versions');

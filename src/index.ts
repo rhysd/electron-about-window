@@ -102,6 +102,9 @@ export default function openAboutWindow(info: AboutWindowInfo) {
     win.webContents.once('dom-ready', () => {
         delete info.win_options;
         win.webContents.send('about-window:info', info);
+        if (info.open_devtools) {
+            win.webContents.openDevTools({detach: true});
+        }
     });
     win.setMenu(null);
 

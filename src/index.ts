@@ -6,6 +6,8 @@ import * as path from 'path';
 import {statSync} from 'fs';
 import assign = require('object-assign');
 
+let window: Electron.BrowserWindow = null;
+
 function loadPackageJson(pkg_path: string): PackageJson {
     'use strict';
     try {
@@ -81,6 +83,11 @@ function injectInfoFromPackageJson(info: AboutWindowInfo) {
 export default function openAboutWindow(info: AboutWindowInfo) {
     'use strict';
 
+    if (window !== null) {
+        window.focus();
+        return;
+    }
+
     const index_html = 'file://' + path.join(__dirname, 'about.html');
 
     const options = assign(
@@ -94,23 +101,23 @@ export default function openAboutWindow(info: AboutWindowInfo) {
         info.win_options || {}
     );
 
-    let win = new BrowserWindow(options);
-    win.once('closed', () => {
-        win = null;
+    window = new BrowserWindow(options);
+    window.once('closed', () => {
+        window = null;
     });
-    win.loadURL(index_html);
+    window.loadURL(index_html);
 
-    win.webContents.once('dom-ready', () => {
+    window.webContents.once('dom-ready', () => {
         delete info.win_options;
-        win.webContents.send('about-window:info', info);
+        window.webContents.send('about-window:info', info);
         if (info.open_devtools) {
-            win.webContents.openDevTools({detach: true});
+            window.webContents.openDevTools({detach: true});
         }
     });
-    win.setMenu(null);
+    window.setMenu(null);
 
     info = injectInfoFromPackageJson(info);
 
-    return win;
+    return window;
 }
 

@@ -40,10 +40,10 @@ ipcRenderer.on('about-window:info', (_, info: AboutWindowInfo) => {
         });
     }
 
-    if (info.css) {
+    if (info.css_path) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = info.css;
+        link.href = info.css_path;
         document.head.appendChild(link);
     }
 });

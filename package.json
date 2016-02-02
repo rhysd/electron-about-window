@@ -1,6 +1,6 @@
 {
   "name": "about-window",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "'About App' window for Electron application",
   "scripts": {
     "dep": "npm install && typings install",

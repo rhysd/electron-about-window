@@ -8,6 +8,7 @@ export interface AboutWindowInfo {
     license?: string;
     win_options?: Electron.BrowserWindowOptions;
     css_path?: string;
+    adjust_window_size?: boolean;
     open_devtools?: boolean;
 }
 

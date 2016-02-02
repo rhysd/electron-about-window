@@ -46,6 +46,18 @@ ipcRenderer.on('about-window:info', (_, info: AboutWindowInfo) => {
         link.href = info.css_path;
         document.head.appendChild(link);
     }
+
+    if (info.adjust_window_size) {
+        const height = document.body.scrollHeight;
+        const width = document.body.scrollWidth;
+        const win = remote.getCurrentWindow();
+        if (height > 0 && width > 0) {
+            // Note:
+            // Add 30px(= about 2em) to add padding in window
+            win.setContentSize(width, height + 40);
+        }
+        win.show();
+    }
 });
 
 const versions = document.querySelector('.versions');
@@ -60,3 +72,4 @@ for (let name of ['electron', 'chrome', 'node', 'v8']) {
     tr.appendChild(version_td);
     versions.appendChild(tr);
 }
+

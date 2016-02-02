@@ -30,6 +30,8 @@ export default function openAboutWindow(info: {
     homepage?: string;
     description?: string;
     license?: string;
+    css_path?: string;
+    adjust_window_size?: boolean;
     win_options?: BrowserWindowOptions;
 }): BrowserWindow
 ```
@@ -64,6 +66,7 @@ $ npm start
 | `license` | License of the application.  If not specified, 'license' entry of package.json is used instead. This property is used when `copyright` is not specified. **Optional** | string |
 | `win_options` | Options of 'About This App' window.  It is merged into default options. **Optional** | [BrowserWindow options object](https://github.com/atom/electron/blob/master/docs/api/browser-window.md#new-browserwindowoptions) |
 | `css_path` | Path to user-defined CSS file.  It will be inserted to DOM of the window. **Optional** | string |
+| `adjust_window_size` | Adjust the window size to its content not to show scroll bar. **Optional** | boolean |
 | `open_devtools` | For debug purpose, Chrome DevTools will start when the window is opened **Optional** | boolean |
 
 ## Screen Shots

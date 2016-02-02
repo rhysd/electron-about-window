@@ -89,6 +89,7 @@ export default function openAboutWindow(info: AboutWindowInfo) {
             height: 400,
             useContentSize: true,
             titleBarStyle: 'hidden-inset',
+            show: !info.adjust_window_size,
         },
         info.win_options || {}
     );

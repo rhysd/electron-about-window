@@ -21,8 +21,9 @@ interface AboutWindowInfo {
     package_json_dir?: string;
     license?: string;
     bug_report_url?: string;
-    win_options?: Electron.BrowserWindowOptions;
     css_path?: string;
+    adjust_window_size?: boolean;
+    win_options?: Electron.BrowserWindowOptions;
     open_devtools?: boolean;
 }
 

@@ -81,7 +81,7 @@ $ npm start
 
 ### Windows
 
-![Windows screenshot](https://raw.githubusercontent.com/rhysd/ss/master/about-window/about-window-windows.png)
+![Windows screenshot](https://raw.githubusercontent.com/rhysd/ss/master/about-window/about-window-windows.jpg)
 
 ## License
 

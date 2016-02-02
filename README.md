@@ -10,7 +10,7 @@
   - [x] Description
 - [x] Gather package information from package.json
 - [x] Automatically detect package.json
-- [ ] Adjust window size to its contents automatically
+- [x] Adjust window size to its contents automatically
 - [x] CSS customizability
 
 You can install this module via [npm](https://www.npmjs.com/).

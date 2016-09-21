@@ -13,7 +13,9 @@
   "scripts": {
     "start": "electron ."
   },
-  "dependencies": {},
+  "dependencies": {
+    "about-window": "1.4.0"
+  },
   "devDependencies": {
     "electron-prebuilt": "1.4.0"
   }

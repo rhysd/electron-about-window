@@ -1,6 +1,6 @@
 {
-  "name": "about-window",
-  "version": "1.3.1",
+  "name": "electron-about-window",
+  "version": "1.4.0",
   "description": "'About App' window for Electron application",
   "scripts": {
     "dep": "npm install && typings install",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rhysd/about-window.git"
+    "url": "git+https://github.com/rhysd/electron-about-window.git"
   },
   "keywords": [
     "Electron",
@@ -22,9 +22,9 @@
   "author": "rhysd <lin90162@yahoo.co.jp>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rhysd/about-window/issues"
+    "url": "https://github.com/rhysd/electron-about-window/issues"
   },
-  "homepage": "https://github.com/rhysd/about-window#readme",
+  "homepage": "https://github.com/rhysd/electron-about-window#readme",
   "devDependencies": {
     "typescript": "^1.7.5",
     "typings": "^0.6.3"

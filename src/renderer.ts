@@ -32,7 +32,7 @@ ipcRenderer.on('about-window:info', (_, info: AboutWindowInfo) => {
     }
 
     if (info.bug_report_url) {
-        const bug_report = document.getElementById('bug-report-link') as HTMLDivElement;
+        const bug_report = document.querySelector('.bug-report-link') as HTMLDivElement;
         bug_report.innerText = 'found bug?';
         bug_report.addEventListener('click', e => {
             e.preventDefault();
@@ -72,4 +72,3 @@ for (let name of ['electron', 'chrome', 'node', 'v8']) {
     tr.appendChild(version_td);
     versions.appendChild(tr);
 }
-

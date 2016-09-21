@@ -96,12 +96,13 @@ export default function openAboutWindow(info: AboutWindowInfo) {
             height: 400,
             useContentSize: true,
             titleBarStyle: 'hidden-inset',
-            show: !info.adjust_window_size,
+            show: false,
         },
         info.win_options || {}
     );
 
     window = new BrowserWindow(options);
+
     window.once('closed', () => {
         window = null;
     });
@@ -112,12 +113,17 @@ export default function openAboutWindow(info: AboutWindowInfo) {
         window.webContents.send('about-window:info', info);
         if (info.open_devtools) {
             window.webContents.openDevTools({detach: true});
+            // window.webContents.openDevTools({mode: 'detach'}); // For Electron 2.0
         }
     });
+
+    window.once('ready-to-show', () => {
+      window.show();
+    });
+
     window.setMenu(null);
 
     info = injectInfoFromPackageJson(info);
 
     return window;
 }
-

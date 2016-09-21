@@ -13,10 +13,8 @@
   "scripts": {
     "start": "electron ."
   },
-  "dependencies": {
-    "about-window": "*"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "electron-prebuilt": "^0.36.7"
+    "electron-prebuilt": "1.4.0"
   }
 }

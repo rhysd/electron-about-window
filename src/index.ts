@@ -73,7 +73,7 @@ function injectInfoFromPackageJson(info: AboutWindowInfo) {
     if (!info.homepage) {
         info.homepage = pkg.homepage;
     }
-    if (!info.bug_report_url && typeof(pkg.bugs) === 'object') {
+    if (!info.bug_report_url && typeof (pkg.bugs) === 'object') {
         info.bug_report_url = pkg.bugs.url;
     }
 
@@ -96,7 +96,7 @@ export default function openAboutWindow(info: AboutWindowInfo) {
             height: 400,
             useContentSize: true,
             titleBarStyle: 'hidden-inset',
-            show: false,
+            show: !info.adjust_window_size,
         },
         info.win_options || {}
     );
@@ -112,13 +112,14 @@ export default function openAboutWindow(info: AboutWindowInfo) {
         delete info.win_options;
         window.webContents.send('about-window:info', info);
         if (info.open_devtools) {
-            window.webContents.openDevTools({detach: true});
-            // window.webContents.openDevTools({mode: 'detach'}); // For Electron 2.0
+            window.webContents.openDevTools({ detach: true });
+            // window.webContents.openDevTools({mode: 'detach'});
+            // Can't use new sentence until electron type defs are updated to 1.4.0
         }
     });
 
     window.once('ready-to-show', () => {
-      window.show();
+        window.show();
     });
 
     window.setMenu(null);

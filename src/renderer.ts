@@ -56,7 +56,6 @@ ipcRenderer.on('about-window:info', (_, info: AboutWindowInfo) => {
             // Add 30px(= about 2em) to add padding in window
             win.setContentSize(width, height + 40);
         }
-        win.show();
     }
 });
 

@@ -111,9 +111,11 @@ export default function openAboutWindow(info: AboutWindowInfo) {
         delete info.win_options;
         window.webContents.send('about-window:info', info);
         if (info.open_devtools) {
-            window.webContents.openDevTools({ detach: true });
-            // window.webContents.openDevTools({mode: 'detach'});
-            // Can't use new sentence until electron type defs are updated to 1.4.0
+            if (process.versions.electron >= '1.4') {
+                window.webContents.openDevTools({mode: 'detach'});
+            } else {
+                window.webContents.openDevTools();
+            }
         }
     });
 

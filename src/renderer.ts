@@ -1,4 +1,3 @@
-/// <reference path="../typings/browser.d.ts" />
 /// <reference path="./lib.d.ts" />
 
 import {shell, ipcRenderer, remote} from 'electron';

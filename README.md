@@ -1,5 +1,6 @@
-'About This App' window for [Electron](https://github.com/atom/electron) apps
+'About This App' Window for [Electron](https://github.com/atom/electron) Apps
 =============================================================================
+[![npm version](https://badge.fury.io/js/about-window.svg)](https://www.npmjs.com/package/about-window)
 
 [This package](https://www.npmjs.com/package/about-window) provides 'About This App' window for [Electron](https://github.com/atom/electron) applications.
 

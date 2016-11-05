@@ -1,9 +1,9 @@
 {
+  "extends": ["tslint:recommended"],
   "rules": {
     "align": [
       true,
       "parameters",
-      "arguments",
       "statements"
     ],
     "ban": false,
@@ -23,10 +23,7 @@
     "jsdoc-format": true,
     "label-position": true,
     "label-undefined": true,
-    "max-line-length": [
-      true,
-      140
-    ],
+    "max-line-length": false,
     "member-access": false,
     "member-ordering": [
       true,
@@ -55,7 +52,7 @@
     "no-empty": true,
     "no-eval": true,
     "no-inferrable-types": false,
-    "no-internal-module": false,
+    "no-internal-module": true,
     "no-require-imports": false,
     "no-shadowed-variable": true,
     "no-string-literal": true,
@@ -63,11 +60,16 @@
     "no-trailing-whitespace": true,
     "no-unreachable": true,
     "no-unused-expression": true,
-    "no-unused-variable": true,
+    "no-unused-variable": "react",
+    "no-unsafe-finally": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
-    "no-var-requires": false,
+    "no-var-requires": true,
     "object-literal-sort-keys": false,
+    "object-literal-key-quotes": [
+      true,
+      "as-needed"
+    ],
     "one-line": [
       true,
       "check-open-brace",
@@ -78,7 +80,8 @@
     "quotemark": [
       true,
       "single",
-      "avoid-escape"
+      "avoid-escape",
+      "jsx-double"
     ],
     "radix": true,
     "semicolon": true,
@@ -107,11 +110,7 @@
         "variable-declaration": "nospace"
       }
     ],
-    "use-strict": [
-      true,
-      "check-module",
-      "check-function"
-    ],
+    "use-strict": false,
     "variable-name": [
       false,
       "check-format",
@@ -125,6 +124,8 @@
       "check-operator",
       "check-separator",
       "check-type"
-    ]
+    ],
+    "no-namespace": false,
+    "no-reference": false
   }
 }

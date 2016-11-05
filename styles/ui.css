@@ -32,8 +32,13 @@ body {
   margin: 0.2em;
 }
 
+.title {
+  cursor: pointer;
+}
+
 .description {
   margin-bottom: 1em;
+  text-align: center;
 }
 
 .versions {

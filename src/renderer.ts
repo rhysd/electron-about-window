@@ -4,15 +4,17 @@ import {shell, ipcRenderer, remote} from 'electron';
 
 ipcRenderer.on('about-window:info', (_, info: AboutWindowInfo) => {
     const app_name = remote.app.getName();
+    const open_home = () => shell.openExternal(info.homepage);
     document.title = `About ${app_name}`;
 
     const title_elem = document.querySelector('.title') as HTMLHeadingElement;
     title_elem.innerText = `${app_name} ${remote.app.getVersion()}`;
+    title_elem.addEventListener('click', open_home);
 
     if (info.homepage) {
         document
             .querySelector('.logo')
-            .addEventListener('click', () => shell.openExternal(info.homepage));
+            .addEventListener('click', open_home);
     }
 
     const copyright_elem = document.querySelector('.copyright') as HTMLDivElement;

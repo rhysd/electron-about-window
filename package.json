@@ -8,7 +8,7 @@
     "build-renderer": "tsc --sourceMap --target es2015 --module commonjs $(npm prefix)/src/renderer.ts --outDir .",
     "build": "npm run build-main && npm run build-renderer",
     "tslint": "tslint $(git ls-files | grep -E \"\\.ts$\")",
-    "example": "electron $(npm prefix)/example",
+    "example": "(cd example/ && npm install) && electron $(npm prefix)/example",
     "start": "npm run dep && npm run build && npm run example",
     "prepublish": "npm run tslint && npm run build && rm -rf example/node_modules"
   },

@@ -3,12 +3,10 @@
 import {app, BrowserWindow} from 'electron';
 import * as path from 'path';
 import {statSync} from 'fs';
-import assign = require('object-assign');
 
 let window: Electron.BrowserWindow = null;
 
 function loadPackageJson(pkg_path: string): PackageJson {
-    'use strict';
     try {
         return require(pkg_path);
     } catch (e) {
@@ -17,8 +15,6 @@ function loadPackageJson(pkg_path: string): PackageJson {
 }
 
 function detectPackageJson(specified_dir: string) {
-    'use strict';
-
     if (specified_dir) {
         const pkg = loadPackageJson(path.join(specified_dir, 'package.json'));
         if (pkg !== null) {
@@ -54,8 +50,6 @@ function detectPackageJson(specified_dir: string) {
 }
 
 function injectInfoFromPackageJson(info: AboutWindowInfo) {
-    'use strict';
-
     const pkg = detectPackageJson(info.package_json_dir);
     if (pkg === null) {
         // Note: Give up.
@@ -80,8 +74,6 @@ function injectInfoFromPackageJson(info: AboutWindowInfo) {
 }
 
 export default function openAboutWindow(info: AboutWindowInfo) {
-    'use strict';
-
     if (window !== null) {
         window.focus();
         return;
@@ -89,7 +81,7 @@ export default function openAboutWindow(info: AboutWindowInfo) {
 
     const index_html = 'file://' + path.join(__dirname, 'about.html');
 
-    const options = assign(
+    const options = Object.assign(
         {
             width: 400,
             height: 400,

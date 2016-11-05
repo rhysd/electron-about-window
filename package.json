@@ -4,8 +4,8 @@
   "description": "'About App' window for Electron application",
   "scripts": {
     "dep": "npm install && typings install",
-    "build-main": "tsc --sourceMap --module commonjs $(npm prefix)/src/index.ts --outDir .",
-    "build-renderer": "tsc --sourceMap --module commonjs $(npm prefix)/src/renderer.ts --outDir .",
+    "build-main": "tsc --sourceMap --target es2015 --module commonjs $(npm prefix)/src/index.ts --outDir .",
+    "build-renderer": "tsc --sourceMap --target es2015 --module commonjs $(npm prefix)/src/renderer.ts --outDir .",
     "build": "npm run build-main && npm run build-renderer",
     "tslint": "tslint $(git ls-files | grep -E \"\\.ts$\")",
     "example": "electron $(npm prefix)/example",
@@ -30,11 +30,9 @@
   "devDependencies": {
     "@types/electron": "^1.4.25",
     "@types/node": "^6.0.46",
-    "@types/object-assign": "^4.0.30",
     "tslint": "^3.15.1",
     "typescript": "^2.0.7"
   },
   "dependencies": {
-    "object-assign": "^4.0.1"
   }
 }

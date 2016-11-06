@@ -15,7 +15,7 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
             .addEventListener('click', open_home);
     }
 
-    const copyright_elem = document.querySelector('.copyright') as HTMLDivElement;
+    const copyright_elem = document.querySelector('.copyright');
     if (info.copyright) {
         copyright_elem.innerHTML = info.copyright;
     } else if (info.license) {

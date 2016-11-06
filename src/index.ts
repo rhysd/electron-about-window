@@ -1,4 +1,4 @@
-import {app, BrowserWindow} from 'electron';
+import {app, BrowserWindow, shell} from 'electron';
 import * as path from 'path';
 import {statSync} from 'fs';
 
@@ -96,6 +96,15 @@ export default function openAboutWindow(info: AboutWindowInfo) {
         window = null;
     });
     window.loadURL(index_html);
+
+    window.webContents.on('will-navigate', (e, url) => {
+        e.preventDefault();
+        shell.openExternal(url);
+    });
+    window.webContents.on('new-window', (e, url) => {
+        e.preventDefault();
+        shell.openExternal(url);
+    });
 
     window.webContents.once('dom-ready', () => {
         delete info.win_options;

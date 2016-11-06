@@ -125,7 +125,6 @@
       "check-separator",
       "check-type"
     ],
-    "no-namespace": false,
-    "no-reference": false
+    "no-namespace": false
   }
 }

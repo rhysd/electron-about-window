@@ -1,5 +1,3 @@
-/// <reference path="./lib.d.ts" />
-
 import {app, BrowserWindow} from 'electron';
 import * as path from 'path';
 import {statSync} from 'fs';
@@ -76,10 +74,10 @@ function injectInfoFromPackageJson(info: AboutWindowInfo) {
 export default function openAboutWindow(info: AboutWindowInfo) {
     if (window !== null) {
         window.focus();
-        return;
+        return window;
     }
 
-    const index_html = 'file://' + path.join(__dirname, 'about.html');
+    const index_html = 'file://' + path.join(__dirname, '..', 'about.html');
 
     const options = Object.assign(
         {

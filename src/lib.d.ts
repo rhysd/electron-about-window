@@ -27,3 +27,8 @@ interface AboutWindowInfo {
     open_devtools?: boolean;
 }
 
+declare namespace NodeJS {
+    interface ProcessVersions {
+        [name: string]: string;
+    }
+}

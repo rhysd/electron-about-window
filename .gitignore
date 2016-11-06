@@ -1,6 +1,4 @@
 node_modules
 npm-debug.log
-/index.js
-/index.js.map
-/renderer.js
-/renderer.js.map
+/src/*.js
+/src/*.js.map

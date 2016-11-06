@@ -2,11 +2,10 @@
   "name": "about-window",
   "version": "1.4.0",
   "description": "'About App' window for Electron application",
+  "main": "src/index.js",
   "scripts": {
     "dep": "npm install && typings install",
-    "build-main": "tsc --sourceMap --target es2015 --module commonjs $(npm prefix)/src/index.ts --outDir .",
-    "build-renderer": "tsc --sourceMap --target es2015 --module commonjs $(npm prefix)/src/renderer.ts --outDir .",
-    "build": "npm run build-main && npm run build-renderer",
+    "build": "tsc -p src/",
     "tslint": "tslint $(git ls-files | grep -E \"\\.ts$\")",
     "stylelint": "stylelint styles/*.css",
     "lint": "npm run tslint && npm run stylelint",

@@ -1,8 +1,6 @@
-/// <reference path="./lib.d.ts" />
-
 import {shell, ipcRenderer, remote} from 'electron';
 
-ipcRenderer.on('about-window:info', (_, info: AboutWindowInfo) => {
+ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
     const app_name = remote.app.getName();
     const open_home = () => shell.openExternal(info.homepage);
     document.title = `About ${app_name}`;

@@ -70,6 +70,8 @@ $ npm start
 | `adjust_window_size` | Adjust the window size to its content not to show scroll bar. **Optional** | boolean |
 | `open_devtools` | For debug purpose, Chrome DevTools will start when the window is opened **Optional** | boolean |
 
+**Note:** `copyright`, `license` and `description` are set with `innerHTML` property so they can contain HTML tags for additional markup. Please ensure that they don't contain any untrusted external input in order to avoid XSS. Be careful.
+
 ## Screen Shots
 
 ### Linux

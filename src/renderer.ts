@@ -17,9 +17,9 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
 
     const copyright_elem = document.querySelector('.copyright') as HTMLDivElement;
     if (info.copyright) {
-        copyright_elem.innerText = info.copyright;
+        copyright_elem.innerHTML = info.copyright;
     } else if (info.license) {
-        copyright_elem.innerText = `Distrubuted under ${info.license} license.`;
+        copyright_elem.innerHTML = `Distrubuted under ${info.license} license.`;
     }
 
     const icon_elem = document.getElementById('app-icon') as HTMLImageElement;
@@ -27,7 +27,7 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
 
     if (info.description) {
         const desc_elem = document.querySelector('.description') as HTMLHeadingElement;
-        desc_elem.innerText = info.description;
+        desc_elem.innerHTML = info.description;
     }
 
     if (info.bug_report_url) {

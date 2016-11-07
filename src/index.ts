@@ -67,6 +67,9 @@ function injectInfoFromPackageJson(info: AboutWindowInfo) {
     if (!info.bug_report_url && typeof (pkg.bugs) === 'object') {
         info.bug_report_url = pkg.bugs.url;
     }
+    if (info.use_inner_html === undefined) {
+        info.use_inner_html = false;
+    }
 
     return info;
 }

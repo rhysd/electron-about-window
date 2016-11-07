@@ -25,6 +25,7 @@ interface AboutWindowInfo {
     adjust_window_size?: boolean;
     win_options?: Electron.BrowserWindowOptions;
     open_devtools?: boolean;
+    use_inner_html?: boolean;
 }
 
 declare namespace NodeJS {

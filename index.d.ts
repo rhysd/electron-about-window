@@ -10,6 +10,7 @@ export interface AboutWindowInfo {
     css_path?: string;
     adjust_window_size?: boolean;
     open_devtools?: boolean;
+    use_inner_html?: boolean;
 }
 
 export default function openAboutWindow(into: AboutWindowInfo): Electron.BrowserWindow;

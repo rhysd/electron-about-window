@@ -69,8 +69,9 @@ $ npm start
 | `css_path` | Path to user-defined CSS file.  It will be inserted to DOM of the window. **Optional** | string |
 | `adjust_window_size` | Adjust the window size to its content not to show scroll bar. **Optional** | boolean |
 | `open_devtools` | For debug purpose, Chrome DevTools will start when the window is opened **Optional** | boolean |
+| `use_inner_html` | If `true`, set the value with `.innerHTML` on copyright, license and description Default is `false` **Optional** | boolean |
 
-**Note:** `copyright`, `license` and `description` are set with `innerHTML` property so they can contain HTML tags for additional markup. Please ensure that they don't contain any untrusted external input in order to avoid XSS. Be careful.
+**Note:** If you set `use_inner_html` to `true`, please ensure that they don't contain any untrusted external input in order to avoid XSS. Be careful.
 
 ## Screen Shots
 

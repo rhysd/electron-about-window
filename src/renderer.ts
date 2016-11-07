@@ -3,6 +3,7 @@ import {shell, ipcRenderer, remote} from 'electron';
 ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
     const app_name = remote.app.getName();
     const open_home = () => shell.openExternal(info.homepage);
+    const content = info.use_inner_html ? 'innerHTML' : 'innerText';
     document.title = `About ${app_name}`;
 
     const title_elem = document.querySelector('.title') as HTMLHeadingElement;
@@ -15,19 +16,19 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
             .addEventListener('click', open_home);
     }
 
-    const copyright_elem = document.querySelector('.copyright');
+    const copyright_elem = document.querySelector('.copyright') as any;
     if (info.copyright) {
-        copyright_elem.innerHTML = info.copyright;
+        copyright_elem[content] = info.copyright;
     } else if (info.license) {
-        copyright_elem.innerHTML = `Distrubuted under ${info.license} license.`;
+        copyright_elem[content] = `Distrubuted under ${info.license} license.`;
     }
 
     const icon_elem = document.getElementById('app-icon') as HTMLImageElement;
     icon_elem.src = info.icon_path;
 
     if (info.description) {
-        const desc_elem = document.querySelector('.description') as HTMLHeadingElement;
-        desc_elem.innerHTML = info.description;
+        const desc_elem = document.querySelector('.description') as any;
+        desc_elem[content] = info.description;
     }
 
     if (info.bug_report_url) {

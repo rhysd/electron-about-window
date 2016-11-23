@@ -4,7 +4,7 @@
   "description": "'About App' window for Electron application",
   "main": "src/index.js",
   "scripts": {
-    "dep": "npm install && typings install",
+    "dep": "npm install",
     "build": "tsc -p src/",
     "tslint": "tslint $(git ls-files | grep -E \"\\.ts$\")",
     "stylelint": "stylelint styles/*.css",
@@ -30,12 +30,12 @@
   },
   "homepage": "https://github.com/rhysd/electron-about-window#readme",
   "devDependencies": {
-    "@types/electron": "^1.4.25",
-    "@types/node": "^6.0.46",
-    "stylelint": "^7.5.0",
-    "stylelint-config-standard": "^14.0.0",
+    "@types/electron": "^1.4.27",
+    "@types/node": "^6.0.50",
+    "stylelint": "^7.6.0",
+    "stylelint-config-standard": "^15.0.0",
     "tslint": "^3.15.1",
-    "typescript": "^2.0.7"
+    "typescript": "^2.0.10"
   },
   "dependencies": {}
 }

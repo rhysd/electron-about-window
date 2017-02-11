@@ -20,7 +20,7 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
     if (info.copyright) {
         copyright_elem[content] = info.copyright;
     } else if (info.license) {
-        copyright_elem[content] = `Distrubuted under ${info.license} license.`;
+        copyright_elem[content] = `Distributed under ${info.license} license.`;
     }
 
     const icon_elem = document.getElementById('app-icon') as HTMLImageElement;

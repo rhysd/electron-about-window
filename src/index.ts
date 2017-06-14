@@ -89,6 +89,7 @@ export default function openAboutWindow(info: AboutWindowInfo) {
             useContentSize: true,
             titleBarStyle: 'hidden-inset',
             show: !info.adjust_window_size,
+            icon: info.icon_path,
         },
         info.win_options || {}
     );

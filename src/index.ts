@@ -1,6 +1,6 @@
 import {app, BrowserWindow, shell} from 'electron';
-import * as path from 'path';
 import {statSync} from 'fs';
+import * as path from 'path';
 
 let window: Electron.BrowserWindow = null;
 
@@ -24,7 +24,7 @@ function detectPackageJson(specified_dir: string) {
 
     const app_name = app.getName();
 
-    for (let mod_path of (module as any).paths) {
+    for (const mod_path of (module as any).paths) {
         if (!path.isAbsolute(mod_path)) {
             continue;
         }
@@ -91,7 +91,7 @@ export default function openAboutWindow(info: AboutWindowInfo) {
             show: !info.adjust_window_size,
             icon: info.icon_path,
         },
-        info.win_options || {}
+        info.win_options || {},
     );
 
     window = new BrowserWindow(options);

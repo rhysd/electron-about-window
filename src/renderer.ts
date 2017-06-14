@@ -1,4 +1,4 @@
-import {shell, ipcRenderer, remote} from 'electron';
+import {ipcRenderer, remote, shell} from 'electron';
 
 ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
     const app_name = remote.app.getName();
@@ -61,7 +61,7 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
 
 const versions = document.querySelector('.versions');
 const vs = process.versions;
-for (let name of ['electron', 'chrome', 'node', 'v8']) {
+for (const name of ['electron', 'chrome', 'node', 'v8']) {
     const tr = document.createElement('tr');
     const name_td = document.createElement('td');
     name_td.innerText = name;

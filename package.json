@@ -1,6 +1,6 @@
 {
   "name": "about-window",
-  "version": "1.6.3",
+  "version": "1.7.0",
   "description": "'About App' window for Electron application",
   "main": "src/index.js",
   "scripts": {
@@ -30,8 +30,8 @@
   },
   "homepage": "https://github.com/rhysd/electron-about-window#readme",
   "devDependencies": {
-    "@types/electron": "~1.4.27",
     "@types/node": "^7.0.31",
+    "electron": "^1.6.11",
     "stylelint": "^7.6.0",
     "stylelint-config-standard": "^16.0.0",
     "tslint": "^5.4.3",

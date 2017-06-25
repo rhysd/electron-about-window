@@ -1,3 +1,5 @@
+/// <reference types="electron" />
+
 interface LicenseEntry {
     type: string;
     url: string;
@@ -23,7 +25,7 @@ interface AboutWindowInfo {
     bug_report_url?: string;
     css_path?: string;
     adjust_window_size?: boolean;
-    win_options?: Electron.BrowserWindowOptions;
+    win_options?: Electron.BrowserWindowConstructorOptions;
     open_devtools?: boolean;
     use_inner_html?: boolean;
 }

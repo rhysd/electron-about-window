@@ -1,3 +1,5 @@
+/// <reference types="electron" />
+
 export interface AboutWindowInfo {
     icon_path: string;
     package_json_dir?: string;
@@ -6,7 +8,7 @@ export interface AboutWindowInfo {
     homepage?: string;
     description?: string;
     license?: string;
-    win_options?: Electron.BrowserWindowOptions;
+    win_options?: Electron.BrowserWindowConstructorOptions;
     css_path?: string;
     adjust_window_size?: boolean;
     open_devtools?: boolean;
@@ -14,4 +16,3 @@ export interface AboutWindowInfo {
 }
 
 export default function openAboutWindow(into: AboutWindowInfo): Electron.BrowserWindow;
-

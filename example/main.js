@@ -2,8 +2,10 @@ var electron = require('electron');
 var app = electron.app;
 var Menu = electron.Menu;
 var BrowserWindow = electron.BrowserWindow;
-var openAboutWindow = require('about-window').default;
 var join = require('path').join;
+
+// Replace '..' with 'about-window'
+var openAboutWindow = require('..').default;
 
 app.once('window-all-closed',function() { app.quit(); });
 

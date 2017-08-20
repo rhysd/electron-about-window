@@ -54,6 +54,9 @@ $ git clone https://github.com/rhysd/about-window.git
 $ cd about-window/example
 $ npm install
 $ npm start
+
+# Or for debug
+$ npm run debug
 ```
 
 ### Parameter's properties of `openAboutWindow()`

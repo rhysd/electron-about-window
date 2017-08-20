@@ -10,7 +10,8 @@
     "tslint": "tslint -p ./src --type-check",
     "stylelint": "stylelint styles/*.css",
     "lint": "npm run tslint && npm run stylelint",
-    "example": "electron ./example",
+    "example": "NODE_ENV=production electron ./example",
+    "debug": "electron ./example",
     "start": "npm run dep && npm run build && npm run example",
     "preversion": "npm run lint && npm run build"
   },

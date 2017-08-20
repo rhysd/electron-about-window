@@ -1,16 +1,16 @@
-var electron = require('electron');
-var app = electron.app;
-var Menu = electron.Menu;
-var BrowserWindow = electron.BrowserWindow;
-var join = require('path').join;
+const electron = require('electron');
+const app = electron.app;
+const Menu = electron.Menu;
+const BrowserWindow = electron.BrowserWindow;
+const join = require('path').join;
 
 // Replace '..' with 'about-window'
-var openAboutWindow = require('..').default;
+const openAboutWindow = require('..').default;
 
 app.once('window-all-closed',function() { app.quit(); });
 
 app.once('ready', function() {
-    var w = new BrowserWindow();
+    let w = new BrowserWindow();
     w.once('closed', function() { w = null; });
     w.loadURL('file://' + join(__dirname, 'index.html'));
 
@@ -23,7 +23,7 @@ app.once('ready', function() {
                     click: () => openAboutWindow({
                                 icon_path: join(__dirname, 'icon.png'),
                                 copyright: 'Copyright (c) 2015 rhysd',
-                                open_devtools: true,
+                                open_devtools: process.env.NODE_ENV !== 'production',
                             })
                 }
             ]

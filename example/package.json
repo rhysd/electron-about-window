@@ -1,0 +1,11 @@
+{
+  "name": "electron-about-window-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rhysd <lin90162@yahoo.co.jp>",
+  "license": "MIT"
+}

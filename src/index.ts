@@ -1,4 +1,4 @@
-import {app, BrowserWindow, shell} from 'electron';
+import {app, BrowserWindow, remote, shell} from 'electron';
 import {statSync} from 'fs';
 import * as path from 'path';
 
@@ -94,7 +94,7 @@ export default function openAboutWindow(info: AboutWindowInfo) {
         info.win_options || {},
     );
 
-    window = new BrowserWindow(options);
+    window = new (BrowserWindow || remote.BrowserWindow)(options);
 
     window.once('closed', () => {
         window = null;

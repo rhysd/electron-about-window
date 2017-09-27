@@ -21,6 +21,7 @@ $ npm install about-window
 ```
 
 Only one function is exported as default.  Please see [TypeScript type definition](index.d.ts).
+The function can be called from both main process and renderer process.
 
 ```typescript
 export default function openAboutWindow(info: {

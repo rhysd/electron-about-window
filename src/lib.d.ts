@@ -28,6 +28,7 @@ interface AboutWindowInfo {
     win_options?: Electron.BrowserWindowConstructorOptions;
     open_devtools?: boolean;
     use_inner_html?: boolean;
+    bug_text?: string;
 }
 
 declare namespace NodeJS {

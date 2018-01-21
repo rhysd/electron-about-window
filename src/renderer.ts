@@ -33,7 +33,7 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
 
     if (info.bug_report_url) {
         const bug_report = document.querySelector('.bug-report-link') as HTMLDivElement;
-        bug_report.innerText = 'found bug?';
+        bug_report.innerText = 'Report an issue';
         bug_report.addEventListener('click', e => {
             e.preventDefault();
             shell.openExternal(info.bug_report_url);

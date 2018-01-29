@@ -1,4 +1,4 @@
-import {ipcRenderer, remote, shell} from 'electron';
+import { ipcRenderer, remote, shell } from 'electron';
 
 ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
     const app_name = remote.app.getName();
@@ -11,9 +11,7 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
     title_elem.addEventListener('click', open_home);
 
     if (info.homepage) {
-        document
-            .querySelector('.logo')
-            .addEventListener('click', open_home);
+        document.querySelector('.logo').addEventListener('click', open_home);
     }
 
     const copyright_elem = document.querySelector('.copyright') as any;

@@ -1,5 +1,5 @@
-import {app, BrowserWindow, remote, shell} from 'electron';
-import {statSync} from 'fs';
+import { app, BrowserWindow, remote, shell } from 'electron';
+import { statSync } from 'fs';
 import * as path from 'path';
 
 let window: Electron.BrowserWindow = null;
@@ -64,7 +64,7 @@ function injectInfoFromPackageJson(info: AboutWindowInfo) {
     if (!info.homepage) {
         info.homepage = pkg.homepage;
     }
-    if (!info.bug_report_url && typeof (pkg.bugs) === 'object') {
+    if (!info.bug_report_url && typeof pkg.bugs === 'object') {
         info.bug_report_url = pkg.bugs.url;
     }
     if (info.use_inner_html === undefined) {
@@ -115,7 +115,7 @@ export default function openAboutWindow(info: AboutWindowInfo) {
         window.webContents.send('about-window:info', info);
         if (info.open_devtools) {
             if (process.versions.electron >= '1.4') {
-                window.webContents.openDevTools({mode: 'detach'});
+                window.webContents.openDevTools({ mode: 'detach' });
             } else {
                 window.webContents.openDevTools();
             }

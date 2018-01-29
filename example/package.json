@@ -2,6 +2,9 @@
   "name": "electron-about-window-example",
   "version": "1.0.0",
   "description": "Example for about-window npm package",
+  "bugs": {
+    "url": "https://github.com/rhysd/electron-about-window/issues"
+  },
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

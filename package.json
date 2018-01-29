@@ -5,9 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "dep": "npm install",
-    "build": "tsc -p src/",
-    "tslint": "tslint $(git ls-files | grep -E \"\\.ts$\")",
-    "tslint": "tslint -p ./src --type-check",
+    "build": "tsc --pretty -p src/",
+    "watch": "tsc --watch --pretty -p src/",
+    "tslint": "tslint -p ./src",
     "stylelint": "stylelint styles/*.css",
     "lint": "npm run tslint && npm run stylelint",
     "example": "NODE_ENV=production electron ./example",
@@ -32,12 +32,13 @@
   },
   "homepage": "https://github.com/rhysd/electron-about-window#readme",
   "devDependencies": {
-    "@types/node": "^8.0.24",
-    "electron": "^1.7.5",
-    "stylelint": "^8.0.0",
-    "stylelint-config-standard": "^17.0.0",
-    "tslint": "^5.6.0",
-    "typescript": "^2.4.2"
+    "@types/node": "^9.4.0",
+    "electron": "^1.7.11",
+    "stylelint": "^8.4.0",
+    "stylelint-config-standard": "^18.0.0",
+    "tslint": "^5.9.1",
+    "typescript": "^2.6.2"
   },
   "dependencies": {}
 }
+

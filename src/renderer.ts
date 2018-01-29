@@ -8,10 +8,13 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
 
     const title_elem = document.querySelector('.title') as HTMLHeadingElement;
     title_elem.innerText = `${app_name} ${remote.app.getVersion()}`;
-    title_elem.addEventListener('click', open_home);
 
     if (info.homepage) {
-        document.querySelector('.logo').addEventListener('click', open_home);
+        title_elem.addEventListener('click', open_home);
+        title_elem.classList.add('clickable');
+        const logo_elem = document.querySelector('.logo');
+        logo_elem.addEventListener('click', open_home);
+        logo_elem.classList.add('clickable');
     }
 
     const copyright_elem = document.querySelector('.copyright') as any;

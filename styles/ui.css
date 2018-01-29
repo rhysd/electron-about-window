@@ -21,7 +21,6 @@ body {
 
 .logo {
   width: 200px;
-  cursor: pointer;
   -webkit-user-select: none;
   user-select: none;
 }
@@ -32,7 +31,7 @@ body {
   margin: 0.2em;
 }
 
-.title {
+.clickable {
   cursor: pointer;
 }
 

@@ -4,7 +4,7 @@ export interface AboutWindowInfo {
     icon_path: string;
     package_json_dir?: string;
     bug_report_url?: string;
-    bug_text?: string;
+    bug_link_text?: string;
     copyright?: string;
     homepage?: string;
     description?: string;

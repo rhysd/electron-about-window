@@ -28,6 +28,7 @@ export default function openAboutWindow(info: {
     icon_path: string;
     package_json_dir?: string;
     bug_report_url?: string;
+    bug_link_text?: string;
     copyright?: string;
     homepage?: string;
     description?: string;
@@ -74,8 +75,9 @@ $ npm run debug
 | `win_options` | Options of 'About This App' window.  It is merged into default options. **Optional** | [BrowserWindow options object](https://github.com/atom/electron/blob/master/docs/api/browser-window.md#new-browserwindowoptions) |
 | `css_path` | Path to user-defined CSS file.  It will be inserted to DOM of the window. **Optional** | string |
 | `adjust_window_size` | Adjust the window size to its content not to show scroll bar. **Optional** | boolean |
-| `open_devtools` | For debug purpose, Chrome DevTools will start when the window is opened **Optional** | boolean |
-| `use_inner_html` | If `true`, set the value with `.innerHTML` on copyright, license and description Default is `false` **Optional** | boolean |
+| `open_devtools` | For debug purpose, Chrome DevTools will start when the window is opened. **Optional** | boolean |
+| `use_inner_html` | If `true`, set the value with `.innerHTML` on copyright, license and description Default is `false`. **Optional** | boolean |
+| `bug_link_text` | Text for a bug report link. **Optional** | string |
 
 **Note:** If you set `use_inner_html` to `true`, please ensure that contents don't contain any untrusted external input
 in order to avoid XSS. Be careful.

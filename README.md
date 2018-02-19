@@ -49,6 +49,12 @@ openAboutWindow({
 });
 ```
 
+If `string` value is passed to the first parameter, it is passed to `icon_path`. So following is a shorthand of above code:
+
+```typescript
+openAboutWindow('path/to/icon.png');
+```
+
 You can check [an example app](example) to know how to use this package.
 
 ```sh

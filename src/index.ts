@@ -74,7 +74,29 @@ function injectInfoFromPackageJson(info: AboutWindowInfo) {
     return info;
 }
 
-export default function openAboutWindow(info: AboutWindowInfo) {
+function normalizeParam(info_or_img_path: AboutWindowInfo | string | undefined | null): AboutWindowInfo {
+    if (!info_or_img_path) {
+        throw new Error(
+            'First parameter of openAboutWindow() must not be empty. Please see the document: https://github.com/rhysd/electron-about-window/blob/master/README.md',
+        );
+    }
+
+    if (typeof info_or_img_path === 'string') {
+        return { icon_path: info_or_img_path };
+    } else {
+        const info = info_or_img_path;
+        if (!info.icon_path) {
+            throw new Error(
+                "First parameter of openAboutWindow() must have key 'icon_path'. Please see the document: https://github.com/rhysd/electron-about-window/blob/master/README.md",
+            );
+        }
+        return info;
+    }
+}
+
+export default function openAboutWindow(info_or_img_path: AboutWindowInfo | string) {
+    let info = normalizeParam(info_or_img_path);
+
     if (window !== null) {
         window.focus();
         return window;

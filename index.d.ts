@@ -16,4 +16,4 @@ export interface AboutWindowInfo {
     use_inner_html?: boolean;
 }
 
-export default function openAboutWindow(into: AboutWindowInfo): Electron.BrowserWindow;
+export default function openAboutWindow(into: AboutWindowInfo | string): Electron.BrowserWindow;

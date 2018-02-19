@@ -2,6 +2,7 @@ before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
+Xvfb :99.0 -screen 0 1024x768x16 &
 
 os:
   - linux

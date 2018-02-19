@@ -16,7 +16,7 @@ branches:
   only:
     - master
 
-script: ./script/travis-build.sh
+script: npm install && npm start
 
 cache:
   directories:

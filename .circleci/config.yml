@@ -6,3 +6,7 @@ jobs:
      steps:
        - checkout
        - run: echo "hello world"
+
+dependencies:
+  override:
+    - npm install

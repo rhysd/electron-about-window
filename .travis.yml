@@ -15,4 +15,3 @@ script:
   - node --version
   - npm --version
   - npm install
-  - npm run e2e

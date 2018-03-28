@@ -26,6 +26,7 @@ The function can be called from both main process and renderer process.
 ```typescript
 export default function openAboutWindow(info: {
     icon_path: string;
+    productName?: string;
     package_json_dir?: string;
     bug_report_url?: string;
     bug_link_text?: string;
@@ -33,7 +34,7 @@ export default function openAboutWindow(info: {
     homepage?: string;
     description?: string;
     license?: string;
-    css_path?: string;
+    css_path?: string | string[];
     adjust_window_size?: boolean;
     win_options?: BrowserWindowOptions;
 }): BrowserWindow

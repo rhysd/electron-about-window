@@ -17,13 +17,14 @@ interface PackageJson {
 
 interface AboutWindowInfo {
     icon_path: string;
+    productName?: string;
     copyright?: string;
     homepage?: string;
     description?: string;
     package_json_dir?: string;
     license?: string;
     bug_report_url?: string;
-    css_path?: string;
+    css_path?: string | string[];
     adjust_window_size?: boolean;
     win_options?: Electron.BrowserWindowConstructorOptions;
     open_devtools?: boolean;

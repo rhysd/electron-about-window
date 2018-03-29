@@ -17,7 +17,7 @@ interface PackageJson {
 
 interface AboutWindowInfo {
     icon_path: string;
-    productName?: string;
+    product_name?: string;
     copyright?: string;
     homepage?: string;
     description?: string;

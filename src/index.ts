@@ -54,6 +54,9 @@ function injectInfoFromPackageJson(info: AboutWindowInfo) {
         return info;
     }
 
+    if (!info.productName) {
+        info.productName = pkg.productName;
+    }
     if (!info.description) {
         info.description = pkg.description;
     }

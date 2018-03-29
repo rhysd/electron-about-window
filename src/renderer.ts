@@ -1,7 +1,7 @@
 import { ipcRenderer, remote, shell } from 'electron';
 
 ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
-    const app_name = remote.app.getName();
+    const app_name = info.productName || remote.app.getName();
     const open_home = () => shell.openExternal(info.homepage);
     const content = info.use_inner_html ? 'innerHTML' : 'innerText';
     document.title = `About ${app_name}`;
@@ -42,10 +42,13 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
     }
 
     if (info.css_path) {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = info.css_path;
-        document.head.appendChild(link);
+        const css_paths = !Array.isArray(info.css_path) ? [info.css_path] : info.css_path
+        for (const css_path of css_paths) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = css_path;
+            document.head.appendChild(link);
+        }
     }
 
     if (info.adjust_window_size) {

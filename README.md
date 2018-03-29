@@ -80,11 +80,12 @@ $ npm run debug
 | `description` | Description of the application.  If not specified, 'description' entry of package.json is used instead. **Optional** | string |
 | `license` | License of the application.  If not specified, 'license' entry of package.json is used instead. This property is used when `copyright` is not specified. **Optional** | string |
 | `win_options` | Options of 'About This App' window.  It is merged into default options. **Optional** | [BrowserWindow options object](https://github.com/atom/electron/blob/master/docs/api/browser-window.md#new-browserwindowoptions) |
-| `css_path` | Path to user-defined CSS file.  It will be inserted to DOM of the window. **Optional** | string |
+| `css_path` | Path(s) to user-defined CSS file.  It will be inserted to DOM of the window. **Optional** | (array of) string |
 | `adjust_window_size` | Adjust the window size to its content not to show scroll bar. **Optional** | boolean |
 | `open_devtools` | For debug purpose, Chrome DevTools will start when the window is opened. **Optional** | boolean |
 | `use_inner_html` | If `true`, set the value with `.innerHTML` on copyright, license and description Default is `false`. **Optional** | boolean |
 | `bug_link_text` | Text for a bug report link. **Optional** | string |
+| `product_name` | Name of the application **Optional** | string |
 
 **Note:** If you set `use_inner_html` to `true`, please ensure that contents don't contain any untrusted external input
 in order to avoid XSS. Be careful.

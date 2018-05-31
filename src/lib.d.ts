@@ -30,6 +30,7 @@ interface AboutWindowInfo {
     open_devtools?: boolean;
     use_inner_html?: boolean;
     bug_link_text?: string;
+    html_path?: string;
 }
 
 declare namespace NodeJS {

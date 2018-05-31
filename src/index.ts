@@ -98,14 +98,19 @@ function normalizeParam(info_or_img_path: AboutWindowInfo | string | undefined |
 }
 
 export default function openAboutWindow(info_or_img_path: AboutWindowInfo | string) {
-    let info = normalizeParam(info_or_img_path);
+    let info = normalizeParam(info_or_img_path),
+        index_html;
 
     if (window !== null) {
         window.focus();
         return window;
     }
 
-    const index_html = 'file://' + path.join(__dirname, '..', 'about.html');
+    if (info.html_path) {
+        index_html = 'file://' + info.html_path;
+    } else {
+        index_html = 'file://' + path.join(__dirname, '..', 'about.html');
+    }
 
     const options = Object.assign(
         {

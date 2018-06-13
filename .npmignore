@@ -3,3 +3,5 @@
 /example
 npm-debug.log
 node_modules
+/src/*.ts
+/tsconfig.json

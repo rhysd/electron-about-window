@@ -37,6 +37,7 @@ export default function openAboutWindow(info: {
     css_path?: string | string[];
     adjust_window_size?: boolean;
     win_options?: BrowserWindowOptions;
+    use_version_info?: boolean;
 }): BrowserWindow
 ```
 
@@ -86,6 +87,7 @@ $ npm run debug
 | `use_inner_html` | If `true`, set the value with `.innerHTML` on copyright, license and description Default is `false`. **Optional** | boolean |
 | `bug_link_text` | Text for a bug report link. **Optional** | string |
 | `product_name` | Name of the application **Optional** | string |
+| `use_version_info` | If `false`, the versions of electron, chrome, node, and v8 will not be displayed. Default is `true`. **Optional** | boolean |
 
 **Note:** If you set `use_inner_html` to `true`, please ensure that contents don't contain any untrusted external input
 in order to avoid XSS. Be careful.

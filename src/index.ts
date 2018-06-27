@@ -73,6 +73,9 @@ function injectInfoFromPackageJson(info: AboutWindowInfo) {
     if (info.use_inner_html === undefined) {
         info.use_inner_html = false;
     }
+    if (info.use_version_info === undefined) {
+        info.use_version_info = true;
+    }
 
     return info;
 }

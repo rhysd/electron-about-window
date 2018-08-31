@@ -108,7 +108,13 @@ export default function openAboutWindow(info_or_img_path: AboutWindowInfo | stri
         return window;
     }
 
-    const index_html = 'file://' + path.join(__dirname, '..', 'about.html');
+    let base_path = info.about_page_dir;
+
+    if (base_path === undefined || base_path === null || !base_path.length) {
+        base_path = path.join(__dirname, '..');
+    }
+
+    const index_html = 'file://' + path.join(base_path, 'about.html');
 
     const options = Object.assign(
         {

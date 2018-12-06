@@ -57,8 +57,12 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
         const win = remote.getCurrentWindow();
         if (height > 0 && width > 0) {
             // Note:
-            // Add 30px(= about 2em) to add padding in window
-            win.setContentSize(width, height + 40);
+            // Add 30px(= about 2em) to add padding in window, if there is a close button, bit more
+            if (info.show_close_button) {
+                win.setContentSize(width, height + 40);
+            } else {
+                win.setContentSize(width, height + 52);
+            }
         }
     }
 
@@ -75,5 +79,17 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
             tr.appendChild(version_td);
             versions.appendChild(tr);
         }
+    }
+
+    if (info.show_close_button) {
+        const buttons = document.querySelector('.buttons');
+        const close_button = document.createElement('button');
+        close_button.innerText = info.show_close_button;
+        close_button.addEventListener('click', e => {
+            e.preventDefault();
+            remote.getCurrentWindow().close();
+        });
+        buttons.appendChild(close_button);
+        close_button.focus();
     }
 });

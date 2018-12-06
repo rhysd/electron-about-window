@@ -32,6 +32,20 @@ app.once('ready', function() {
                             open_devtools: process.env.NODE_ENV !== 'production',
                         }),
                 },
+                {
+                    label: 'About This App (modal with close)',
+                    click: () =>
+                        openAboutWindow({
+                            icon_path: join(__dirname, 'icon.png'),
+                            copyright: 'Copyright (c) 2015 rhysd',
+                            package_json_dir: __dirname,
+                            win_options: {
+                                parent: w,
+                                modal: true,
+                            },
+                            show_close_button: "Close"
+                        }),
+                },
             ],
         },
     ]);

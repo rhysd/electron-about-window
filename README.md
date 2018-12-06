@@ -12,6 +12,7 @@
 - [x] Gather package information from package.json
 - [x] Automatically detect package.json
 - [x] Adjust window size to its contents automatically
+- [x] Optional close button
 - [x] CSS customizability
 
 You can install this module via [npm](https://www.npmjs.com/).
@@ -38,6 +39,7 @@ export default function openAboutWindow(info: {
     adjust_window_size?: boolean;
     win_options?: BrowserWindowOptions;
     use_version_info?: boolean;
+    show_close_button?: string;
 }): BrowserWindow
 ```
 
@@ -88,6 +90,7 @@ $ npm run debug
 | `bug_link_text` | Text for a bug report link. **Optional** | string |
 | `product_name` | Name of the application **Optional** | string |
 | `use_version_info` | If `false`, the versions of electron, chrome, node, and v8 will not be displayed. Default is `true`. **Optional** | boolean |
+| `show_close_button` | If this is a valid string, a close button with this string be displayed. **Optional** | string |
 
 **Note:** If you set `use_inner_html` to `true`, please ensure that contents don't contain any untrusted external input
 in order to avoid XSS. Be careful.

@@ -118,6 +118,11 @@ export default function openAboutWindow(info_or_img_path: AboutWindowInfo | stri
             titleBarStyle: 'hidden-inset',
             show: !info.adjust_window_size,
             icon: info.icon_path,
+            webPreferences: {
+                // For security reasons, nodeIntegration is no longer true by default when using Electron v5 or later
+                // nodeIntegration can be safely enabled as long as the window source is not remote
+                nodeIntegration: true,
+            },
         },
         info.win_options || {},
     );

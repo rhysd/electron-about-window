@@ -22,6 +22,7 @@ interface AboutWindowInfo {
     homepage?: string;
     description?: string;
     package_json_dir?: string;
+    about_page_dir?: string;
     license?: string;
     bug_report_url?: string;
     css_path?: string | string[];

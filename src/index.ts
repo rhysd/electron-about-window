@@ -144,7 +144,9 @@ export default function openAboutWindow(info_or_img_path: AboutWindowInfo | stri
     });
 
     window.webContents.once('dom-ready', () => {
+        const win_title = info.win_options ? info.win_options.title : null;
         delete info.win_options;
+        info.win_options = { title: win_title };
         window.webContents.send('about-window:info', info);
         if (info.open_devtools) {
             if (process.versions.electron >= '1.4') {

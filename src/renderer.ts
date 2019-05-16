@@ -4,7 +4,7 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
     const app_name = info.product_name || remote.app.getName();
     const open_home = () => shell.openExternal(info.homepage);
     const content = info.use_inner_html ? 'innerHTML' : 'innerText';
-    document.title = `About ${app_name}`;
+    document.title = info.win_options.title || `About ${app_name}`;
 
     const title_elem = document.querySelector('.title') as HTMLHeadingElement;
     title_elem.innerText = `${app_name} ${remote.app.getVersion()}`;

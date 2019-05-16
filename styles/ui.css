@@ -50,6 +50,17 @@ body {
   color: #999;
 }
 
+.buttons {
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.buttons button {
+  margin-top: 1em;
+  width: 100px;
+  height: 24px;
+}
+
 .link {
   cursor: pointer;
   color: #80a0c2;

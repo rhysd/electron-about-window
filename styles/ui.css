@@ -67,8 +67,13 @@ body {
 }
 
 .bug-report-link {
-  -webkit-app-region: no-drag;
   position: absolute;
   right: 0.5em;
   bottom: 0.5em;
+}
+
+.clickable,
+.bug-report-link
+.buttons button {
+    -webkit-app-region: no-drag;
 }

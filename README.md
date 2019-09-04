@@ -41,7 +41,6 @@ export default function openAboutWindow(info: {
     win_options?: BrowserWindowOptions;
     use_version_info?: boolean;
     show_close_button?: string;
-    win_title?: string;
 }): BrowserWindow
 ```
 
@@ -94,7 +93,6 @@ $ npm run debug
 | `use_version_info` | If `false`, the versions of electron, chrome, node, and v8 will not be displayed. Default is `true`. **Optional** | boolean |
 | `show_close_button` | If this is a valid string, a close button with this string be displayed. **Optional** | string |
 | `about_page_dir` | Directory path which contains `about.html` which is rendered in 'About this app' window. **Optional** | string |
-| `win_title` | Title string of the window. Default title is `About {app name}`. **Optional** | string |
 
 **Note:** If you set `use_inner_html` to `true`, please ensure that contents don't contain any untrusted external input
 in order to avoid XSS. Be careful.

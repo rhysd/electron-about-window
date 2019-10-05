@@ -32,6 +32,7 @@ interface AboutWindowInfo {
     use_inner_html?: boolean;
     bug_link_text?: string;
     use_version_info?: boolean;
+    resizable?: boolean;
     show_close_button?: string;
 }
 

@@ -40,6 +40,7 @@ export default function openAboutWindow(info: {
     adjust_window_size?: boolean;
     win_options?: BrowserWindowOptions;
     use_version_info?: boolean;
+    resizable?: boolean;
     show_close_button?: string;
 }): BrowserWindow
 ```
@@ -91,6 +92,7 @@ $ npm run debug
 | `bug_link_text` | Text for a bug report link. **Optional** | string |
 | `product_name` | Name of the application **Optional** | string |
 | `use_version_info` | If `false`, the versions of electron, chrome, node, and v8 will not be displayed. Default is `true`. **Optional** | boolean |
+| `resizable` | Whether window is resizable. Default is `true`. **Optional** | boolean |
 | `show_close_button` | If this is a valid string, a close button with this string be displayed. **Optional** | string |
 | `about_page_dir` | Directory path which contains `about.html` which is rendered in 'About this app' window. **Optional** | string |
 

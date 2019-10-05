@@ -17,6 +17,7 @@ export interface AboutWindowInfo {
     open_devtools?: boolean;
     use_inner_html?: boolean;
     use_version_info?: boolean;
+    resizable?: boolean;
     show_close_button?: string;
 }
 

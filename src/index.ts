@@ -96,7 +96,7 @@ function normalizeParam(info_or_img_path: AboutWindowInfo | string | undefined |
                 "First parameter of openAboutWindow() must have key 'icon_path'. Please see the document: https://github.com/rhysd/electron-about-window/blob/master/README.md",
             );
         }
-        return info;
+        return { ...info };
     }
 }
 

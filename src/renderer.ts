@@ -1,7 +1,7 @@
 import { ipcRenderer, remote, shell } from 'electron';
 
 ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
-    const app_name = info.product_name || remote.app.getName();
+    const app_name = info.product_name || remote.app.name;
     const open_home = () => shell.openExternal(info.homepage);
     const content = info.use_inner_html ? 'innerHTML' : 'innerText';
     document.title = info.win_options.title || `About ${app_name}`;

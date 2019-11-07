@@ -68,5 +68,5 @@ app.once('ready', function() {
             ],
         },
     ]);
-    Menu.setApplicationMenu(menu);
+    app.applicationMenu = menu;
 });

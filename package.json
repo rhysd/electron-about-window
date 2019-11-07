@@ -33,7 +33,7 @@
   "homepage": "https://github.com/rhysd/electron-about-window#readme",
   "devDependencies": {
     "@types/node": "^12.6.6",
-    "electron": "^5.0.7",
+    "electron": "^7.1.0",
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
     "tslint": "^5.18.0",

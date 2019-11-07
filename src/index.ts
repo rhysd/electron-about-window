@@ -22,8 +22,6 @@ function detectPackageJson(specified_dir: string) {
         }
     }
 
-    const app_name = app.getName();
-
     for (const mod_path of (module as any).paths) {
         if (!path.isAbsolute(mod_path)) {
             continue;
@@ -34,7 +32,7 @@ function detectPackageJson(specified_dir: string) {
             const stats = statSync(p);
             if (stats.isFile()) {
                 const pkg = loadPackageJson(p);
-                if (pkg !== null && pkg.productName === app_name) {
+                if (pkg !== null && pkg.productName === app.name) {
                     return pkg;
                 }
             }

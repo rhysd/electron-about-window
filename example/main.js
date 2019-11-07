@@ -18,20 +18,6 @@ app.once('ready', function() {
     });
     w.loadURL('file://' + join(__dirname, 'index.html'));
 
-    const options = {
-        icon_path: join(__dirname, 'icon.png'),
-        copyright: 'Copyright (c) 2015 rhysd',
-        package_json_dir: __dirname,
-        win_options: {
-            resizable: false,
-            minimizable: false,
-            maximizable: false,
-            movable: false,
-            parent: w,
-            modal: true,
-        }
-    }
-
     const menu = Menu.buildFromTemplate([
         {
             label: 'Example',
@@ -57,13 +43,8 @@ app.once('ready', function() {
                                 parent: w,
                                 modal: true,
                             },
-                            show_close_button: "Close"
+                            show_close_button: 'Close',
                         }),
-                },
-                {
-                    label: 'About This App (modal with options)',
-                    click: () =>
-                        openAboutWindow(options),
                 },
             ],
         },

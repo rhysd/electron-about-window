@@ -1,5 +1,6 @@
 {
   "name": "electron-about-window-example",
+  "productName": "Example for about-window",
   "version": "1.0.0",
   "description": "Example for about-window npm package",
   "homepage": "https://github.com/rhysd/electron-about-window#readme",

@@ -22,6 +22,9 @@ function detectPackageJson(specified_dir: string) {
         }
     }
 
+    // Note: app.getName() was replaced with app.name at Electron v7
+    const app_name = app.name || app.getName();
+
     for (const mod_path of (module as any).paths) {
         if (!path.isAbsolute(mod_path)) {
             continue;
@@ -32,7 +35,7 @@ function detectPackageJson(specified_dir: string) {
             const stats = statSync(p);
             if (stats.isFile()) {
                 const pkg = loadPackageJson(p);
-                if (pkg !== null && pkg.productName === app.name) {
+                if (pkg !== null && pkg.productName === app_name) {
                     return pkg;
                 }
             }

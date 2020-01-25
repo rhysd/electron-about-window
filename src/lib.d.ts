@@ -1,42 +1,44 @@
 /// <reference types="electron" />
 
 interface LicenseEntry {
-    type: string;
-    url: string;
+  type: string;
+  url: string;
 }
 
 interface PackageJson {
-    productName?: string;
-    description?: string;
-    homepage?: string;
-    license?: string | LicenseEntry;
-    bugs?: {
-        url: string;
-    };
+  productName?: string;
+  description?: string;
+  homepage?: string;
+  license?: string | LicenseEntry;
+  bugs?: {
+    url: string;
+  };
+  version?: string;
 }
 
 interface AboutWindowInfo {
-    icon_path: string;
-    product_name?: string;
-    copyright?: string;
-    homepage?: string;
-    description?: string;
-    package_json_dir?: string;
-    about_page_dir?: string;
-    license?: string;
-    bug_report_url?: string;
-    css_path?: string | string[];
-    adjust_window_size?: boolean;
-    win_options?: Electron.BrowserWindowConstructorOptions;
-    open_devtools?: boolean;
-    use_inner_html?: boolean;
-    bug_link_text?: string;
-    use_version_info?: boolean;
-    show_close_button?: string;
+  icon_path: string;
+  product_name?: string;
+  copyright?: string;
+  homepage?: string;
+  description?: string;
+  package_json_dir?: string;
+  about_page_dir?: string;
+  license?: string;
+  bug_report_url?: string;
+  css_path?: string | string[];
+  adjust_window_size?: boolean;
+  win_options?: Electron.BrowserWindowConstructorOptions;
+  open_devtools?: boolean;
+  use_inner_html?: boolean;
+  bug_link_text?: string;
+  use_version_info?: boolean;
+  show_close_button?: string;
+  version?: string;
 }
 
 declare namespace NodeJS {
-    interface ProcessVersions {
-        [name: string]: string;
-    }
+  interface ProcessVersions {
+    [name: string]: string;
+  }
 }

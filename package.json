@@ -10,7 +10,7 @@
     "tslint": "tslint -p ./src",
     "stylelint": "stylelint styles/*.css",
     "lint": "npm run tslint && npm run stylelint",
-    "example": "NODE_ENV=production electron ./example",
+    "example": "cross-env NODE_ENV=production electron ./example",
     "debug": "electron ./example",
     "start": "npm run dep && npm run build && npm run example",
     "preversion": "npm run lint && npm run build"
@@ -33,11 +33,11 @@
   "homepage": "https://github.com/rhysd/electron-about-window#readme",
   "devDependencies": {
     "@types/node": "^12.6.6",
+    "cross-env": "^6.0.3",
     "electron": "^7.1.0",
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"
-  },
-  "dependencies": {}
+  }
 }

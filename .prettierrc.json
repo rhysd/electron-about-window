@@ -1,0 +1,31 @@
+{
+  "tabWidth": 4,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "printWidth": 120,
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "options": {
+        "trailingComma": "all"
+      }
+    },
+    {
+      "files": "*.css",
+      "options": {
+        "tabWidth": 2,
+        "printWidth": -1
+      }
+    },
+    {
+      "files": "*.md",
+      "options": {
+        "tabWidth": 2
+      }
+    }
+  ]
+}

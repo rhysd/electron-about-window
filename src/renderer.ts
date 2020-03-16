@@ -69,14 +69,16 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
 
     if (info.use_version_info) {
         const versions = document.querySelector('.versions');
-        const vs = process.versions;
-        for (const name of ['electron', 'chrome', 'node', 'v8']) {
+        const version_info: Array<[string, string]> = Array.isArray(info.use_version_info)
+            ? info.use_version_info
+            : ['electron', 'chrome', 'node', 'v8'].map(e => [e, process.versions[e]]);
+        for (const [name, value] of version_info) {
             const tr = document.createElement('tr');
             const name_td = document.createElement('td');
             name_td.innerText = name;
             tr.appendChild(name_td);
             const version_td = document.createElement('td');
-            version_td.innerText = ' : ' + vs[name];
+            version_td.innerText = ' : ' + value;
             tr.appendChild(version_td);
             versions.appendChild(tr);
         }

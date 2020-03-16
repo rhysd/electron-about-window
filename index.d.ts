@@ -16,7 +16,7 @@ export interface AboutWindowInfo {
     adjust_window_size?: boolean;
     open_devtools?: boolean;
     use_inner_html?: boolean;
-    use_version_info?: boolean;
+    use_version_info?: boolean | [string, string][];
     show_close_button?: string;
 }
 

@@ -33,6 +33,16 @@ app.once('ready', function() {
                         }),
                 },
                 {
+                    label: 'About This App (custom version entry)',
+                    click: () =>
+                        openAboutWindow({
+                            icon_path: join(__dirname, 'icon.png'),
+                            copyright: 'Copyright (c) 2015 rhysd',
+                            package_json_dir: __dirname,
+                            use_version_info: [['my version entry 1', 'foo'], ['my version entry 2', 'bar']],
+                        }),
+                },
+                {
                     label: 'About This App (modal with close)',
                     click: () =>
                         openAboutWindow({

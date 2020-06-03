@@ -1,6 +1,9 @@
-import { app, BrowserWindow, remote, shell } from 'electron';
+import { app as appMain, BrowserWindow as BrowserWindowMain, remote, shell } from 'electron';
 import { statSync } from 'fs';
 import * as path from 'path';
+
+const app = appMain || remote.app;
+const BrowserWindow = BrowserWindowMain || remote.BrowserWindow;
 
 let window: Electron.BrowserWindow = null;
 
@@ -22,10 +25,8 @@ function detectPackageJson(specified_dir: string) {
         }
     }
 
-    const application = app || remote.app;  
-    
     // Note: app.getName() was replaced with app.name at Electron v7
-    const app_name = application.name || application.getName();
+    const app_name = app.name || app.getName();
 
     for (const mod_path of (module as any).paths) {
         if (!path.isAbsolute(mod_path)) {
@@ -138,7 +139,7 @@ export default function openAboutWindow(info_or_img_path: AboutWindowInfo | stri
         info.win_options || {},
     );
 
-    window = new (BrowserWindow || remote.BrowserWindow)(options);
+    window = new BrowserWindow(options);
 
     window.once('closed', () => {
         window = null;

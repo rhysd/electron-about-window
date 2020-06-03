@@ -131,6 +131,8 @@ export default function openAboutWindow(info_or_img_path: AboutWindowInfo | stri
                 // For security reasons, nodeIntegration is no longer true by default when using Electron v5 or later
                 // nodeIntegration can be safely enabled as long as the window source is not remote
                 nodeIntegration: true,
+                // From Electron v10, this option is set to false by default
+                enableRemoteModule: true,
             },
         },
         info.win_options || {},

@@ -1,5 +1,7 @@
 {
-  "extends": ["tslint:recommended"],
+  "extends": [
+    "tslint:recommended"
+  ],
   "rules": {
     "align": [
       true,
@@ -24,12 +26,6 @@
     "label-position": true,
     "max-line-length": false,
     "member-access": false,
-    "member-ordering": [
-      true,
-      "public-before-private",
-      "static-before-instance",
-      "variables-before-functions"
-    ],
     "no-any": false,
     "no-arg": true,
     "no-bitwise": false,
@@ -58,7 +54,6 @@
     "no-trailing-whitespace": true,
     "no-unused-expression": true,
     "no-unsafe-finally": true,
-    "no-use-before-declare": true,
     "no-var-keyword": true,
     "no-var-requires": true,
     "object-literal-sort-keys": false,

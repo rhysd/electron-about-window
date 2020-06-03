@@ -22,8 +22,10 @@ function detectPackageJson(specified_dir: string) {
         }
     }
 
+    const application = app || remote.app;  
+    
     // Note: app.getName() was replaced with app.name at Electron v7
-    const app_name = app.name || app.getName();
+    const app_name = application.name || application.getName();
 
     for (const mod_path of (module as any).paths) {
         if (!path.isAbsolute(mod_path)) {

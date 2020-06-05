@@ -1,6 +1,6 @@
 {
   "name": "about-window",
-  "version": "1.13.3",
+  "version": "1.13.4",
   "description": "'About App' window for Electron application",
   "main": "src/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "tslint": "tslint -p ./src",
     "stylelint": "stylelint styles/*.css",
     "check-formatting": "prettier --check '**/*.ts'",
-    "lint": "npm run tslint && npm run stylelint check-formatting",
+    "lint": "npm run tslint && npm run stylelint && npm run check-formatting",
     "prettier": "prettier --write '**/*.ts'",
     "example": "NODE_ENV=production electron ./example",
     "debug": "electron ./example",

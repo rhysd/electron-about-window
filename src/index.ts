@@ -2,10 +2,9 @@ import { app as appMain, BrowserWindow as BrowserWindowMain, remote, shell } fro
 import { statSync } from 'fs';
 import * as path from 'path';
 
-const app = appMain || remote.app;
-const BrowserWindow = BrowserWindowMain || remote.BrowserWindow;
-
-let window: Electron.BrowserWindow = null;
+// Some people want to import this module even without Electron runtime (#58)
+const app = appMain || remote?.app;
+const BrowserWindow = BrowserWindowMain || remote?.BrowserWindow;
 
 function loadPackageJson(pkg_path: string): PackageJson {
     try {
@@ -105,6 +104,7 @@ function normalizeParam(info_or_img_path: AboutWindowInfo | string | undefined |
 }
 
 export default function openAboutWindow(info_or_img_path: AboutWindowInfo | string) {
+    let window: Electron.BrowserWindow = null;
     let info = normalizeParam(info_or_img_path);
 
     if (window !== null) {

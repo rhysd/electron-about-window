@@ -7,13 +7,13 @@ const join = require('path').join;
 // Replace '..' with 'about-window'
 const openAboutWindow = require('..').default;
 
-app.once('window-all-closed', function() {
+app.once('window-all-closed', function () {
     app.quit();
 });
 
-app.once('ready', function() {
+app.once('ready', function () {
     let w = new BrowserWindow();
-    w.once('closed', function() {
+    w.once('closed', function () {
         w = null;
     });
     w.loadURL('file://' + join(__dirname, 'index.html'));
@@ -45,6 +45,9 @@ app.once('ready', function() {
                             },
                             show_close_button: 'Close',
                         }),
+                },
+                {
+                    role: 'quit',
                 },
             ],
         },

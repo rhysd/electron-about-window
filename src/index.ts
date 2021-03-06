@@ -134,6 +134,8 @@ export default function openAboutWindow(info_or_img_path: AboutWindowInfo | stri
                 nodeIntegration: true,
                 // From Electron v10, this option is set to false by default
                 enableRemoteModule: true,
+                // From Electron v12, this option is set to true by default
+                contextIsolation: false,
             },
         },
         info.win_options || {},

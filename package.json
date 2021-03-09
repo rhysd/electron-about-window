@@ -1,6 +1,6 @@
 {
   "name": "about-window",
-  "version": "1.13.4",
+  "version": "1.14.0",
   "description": "'About App' window for Electron application",
   "main": "src/index.js",
   "scripts": {

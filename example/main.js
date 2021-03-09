@@ -39,7 +39,10 @@ app.once('ready', function () {
                             icon_path: join(__dirname, 'icon.png'),
                             copyright: 'Copyright (c) 2015 rhysd',
                             package_json_dir: __dirname,
-                            use_version_info: [['my version entry 1', 'foo'], ['my version entry 2', 'bar']],
+                            use_version_info: [
+                                ['my version entry 1', 'a.b.c'],
+                                ['my version entry 2', 'x.y.z'],
+                            ],
                         }),
                 },
                 {

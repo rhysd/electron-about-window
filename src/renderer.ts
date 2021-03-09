@@ -67,9 +67,9 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
         }
     }
 
-    if (info.use_version_info) {
+    if (!!info.use_version_info) {
         const versions = document.querySelector('.versions');
-        const version_info: Array<[string, string]> = Array.isArray(info.use_version_info)
+        const version_info: [string, string][] = Array.isArray(info.use_version_info)
             ? info.use_version_info
             : ['electron', 'chrome', 'node', 'v8'].map(e => [e, process.versions[e]]);
         for (const [name, value] of version_info) {

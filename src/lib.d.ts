@@ -31,7 +31,7 @@ interface AboutWindowInfo {
     open_devtools?: boolean;
     use_inner_html?: boolean;
     bug_link_text?: string;
-    use_version_info?: boolean;
+    use_version_info?: boolean | [string, string][];
     show_close_button?: string;
 }
 

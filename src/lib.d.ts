@@ -33,6 +33,9 @@ interface AboutWindowInfo {
     bug_link_text?: string;
     use_version_info?: boolean | [string, string][];
     show_close_button?: string;
+    app?: Electron.App;
+    BrowserWindow?: typeof Electron.BrowserWindow;
+    ipcMain?: Electron.IpcMain;
 }
 
 declare namespace NodeJS {

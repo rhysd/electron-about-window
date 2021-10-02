@@ -21,6 +21,8 @@ You can install this module via [npm](https://www.npmjs.com/).
 $ npm install about-window
 ```
 
+## Usage
+
 Only one function is exported as default.  Please see [TypeScript type definition](index.d.ts).
 The function can be called from both main process and renderer process.
 
@@ -41,6 +43,9 @@ export default function openAboutWindow(info: {
     win_options?: BrowserWindowOptions;
     use_version_info?: boolean | [string, string][];
     show_close_button?: string;
+    app?: Electron.App;
+    BrowserWindow?: typeof Electron.BrowserWindow;
+    ipcMain?: Electron.IpcMain;
 }): BrowserWindow
 ```
 
@@ -93,9 +98,29 @@ $ npm run debug
 | `use_version_info` | If is `false`, nothing will be displayed, if is `true`, the versions of electron, chrome, node, and v8 will be displayed, if is an array of string tuple, its entries will be displayed. Default is `true`. **Optional** | boolean |
 | `show_close_button` | If this is a valid string, a close button with this string be displayed. **Optional** | string |
 | `about_page_dir` | Directory path which contains `about.html` which is rendered in 'About this app' window. **Optional** | string |
+| `app` | [app](https://www.electronjs.org/docs/latest/api/app) instance to use. This property is necessary only when using on renderer processes. **Optional** | Electron.App |
+| `BrowserWindow` | Constructor of [BrowserWindow](https://www.electronjs.org/docs/latest/api/browser-window) to use. This property is necessary only when using on renderer processes. **Optional** | Electron.App |
+| `ipcMain` | [ipcMain](https://www.electronjs.org/docs/latest/api/ipc-main) instance to use. This property is necessary only when using on renderer processes. **Optional** | Electron.App |
 
 **Note:** If you set `use_inner_html` to `true`, please ensure that contents don't contain any untrusted external input
 in order to avoid XSS. Be careful.
+
+### Open the window from non-main process
+
+Since `openAboutWindow()` depends on several APIs only available on main process, they must be provided by caller when it is called on non-main process.
+
+To mimic the APIs, use [`@electron/remote`](https://www.npmjs.com/package/@electron/remote) module.
+
+```typescript
+import {app, BrowserWindow, ipcMain} from '@electron/remote';
+
+openAboutWindow({
+    icon_path: 'path/to/icon.png'
+    app,
+    BrowserWindow,
+    ipcMain,
+});
+```
 
 ## Screen Shots
 

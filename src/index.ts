@@ -1,4 +1,4 @@
-import { app, BrowserWindow, shell, ipcMain as ipc } from 'electron';
+import { app as appMain, BrowserWindow as BrowserWindowMain, shell, ipcMain } from 'electron';
 import { statSync } from 'fs';
 import * as path from 'path';
 
@@ -10,7 +10,7 @@ function loadPackageJson(pkg_path: string): PackageJson {
     }
 }
 
-function detectPackageJson(specified_dir: string) {
+function detectPackageJson(specified_dir: string, app: Electron.App) {
     if (specified_dir) {
         const pkg = loadPackageJson(path.join(specified_dir, 'package.json'));
         if (pkg !== null) {
@@ -46,8 +46,8 @@ function detectPackageJson(specified_dir: string) {
     return null;
 }
 
-function injectInfoFromPackageJson(info: AboutWindowInfo) {
-    const pkg = detectPackageJson(info.package_json_dir);
+function injectInfoFromPackageJson(info: AboutWindowInfo, app: Electron.App) {
+    const pkg = detectPackageJson(info.package_json_dir, app);
     if (pkg === null) {
         // Note: Give up.
         return info;
@@ -102,6 +102,15 @@ function normalizeParam(info_or_img_path: AboutWindowInfo | string | undefined |
 export default function openAboutWindow(info_or_img_path: AboutWindowInfo | string) {
     let window: Electron.BrowserWindow = null;
     let info = normalizeParam(info_or_img_path);
+
+    const ipc = ipcMain ?? info.ipcMain;
+    const app = appMain ?? info.app;
+    const BrowserWindow = BrowserWindowMain ?? info.BrowserWindow;
+    if (!app || !BrowserWindow || !ipc) {
+        throw new Error(
+            "openAboutWindow() is called on non-main process. Set 'app', 'BrowserWindow' and 'ipcMain' properties in the 'info' argument of the function call",
+        );
+    }
 
     if (window !== null) {
         window.focus();
@@ -192,7 +201,7 @@ export default function openAboutWindow(info_or_img_path: AboutWindowInfo | stri
 
     window.setMenu(null);
 
-    info = injectInfoFromPackageJson(info);
+    info = injectInfoFromPackageJson(info, app);
 
     return window;
 }

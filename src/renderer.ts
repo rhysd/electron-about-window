@@ -1,14 +1,13 @@
-import { ipcRenderer, remote, shell } from 'electron';
+import { ipcRenderer, shell } from 'electron';
 
-ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
+ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo, app_name: string, version: string) => {
     // Note: app.getName() was replaced with app.name at Electron v7
-    const app_name = info.product_name || remote.app.name || remote.app.getName();
     const open_home = () => shell.openExternal(info.homepage);
     const content = info.use_inner_html ? 'innerHTML' : 'innerText';
     document.title = info.win_options.title || `About ${app_name}`;
 
     const title_elem = document.querySelector('.title') as HTMLHeadingElement;
-    title_elem.innerText = `${app_name} ${remote.app.getVersion()}`;
+    title_elem.innerText = `${app_name} ${version}`;
 
     if (info.homepage) {
         title_elem.addEventListener('click', open_home);
@@ -55,16 +54,7 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
     if (info.adjust_window_size) {
         const height = document.body.scrollHeight;
         const width = document.body.scrollWidth;
-        const win = remote.getCurrentWindow();
-        if (height > 0 && width > 0) {
-            // Note:
-            // Add 30px(= about 2em) to add padding in window, if there is a close button, bit more
-            if (info.show_close_button) {
-                win.setContentSize(width, height + 40);
-            } else {
-                win.setContentSize(width, height + 52);
-            }
-        }
+        ipcRenderer.send('about-window:adjust-window-size', height, width, !!info.show_close_button);
     }
 
     if (!!info.use_version_info) {
@@ -90,7 +80,7 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
         close_button.innerText = info.show_close_button;
         close_button.addEventListener('click', e => {
             e.preventDefault();
-            remote.getCurrentWindow().close();
+            ipcRenderer.send('about-window:close-window');
         });
         buttons.appendChild(close_button);
         close_button.focus();

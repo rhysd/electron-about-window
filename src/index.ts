@@ -1,10 +1,6 @@
-import { app as appMain, BrowserWindow as BrowserWindowMain, remote, shell } from 'electron';
+import { app, BrowserWindow, shell, ipcMain as ipc } from 'electron';
 import { statSync } from 'fs';
 import * as path from 'path';
-
-// Some people want to import this module even without Electron runtime (#58)
-const app = appMain || remote?.app;
-const BrowserWindow = BrowserWindowMain || remote?.BrowserWindow;
 
 function loadPackageJson(pkg_path: string): PackageJson {
     try {
@@ -132,8 +128,6 @@ export default function openAboutWindow(info_or_img_path: AboutWindowInfo | stri
                 // For security reasons, nodeIntegration is no longer true by default when using Electron v5 or later
                 // nodeIntegration can be safely enabled as long as the window source is not remote
                 nodeIntegration: true,
-                // From Electron v10, this option is set to false by default
-                enableRemoteModule: true,
                 // From Electron v12, this option is set to true by default
                 contextIsolation: false,
             },
@@ -143,8 +137,27 @@ export default function openAboutWindow(info_or_img_path: AboutWindowInfo | stri
 
     window = new BrowserWindow(options);
 
+    const on_win_adjust_req = (_: unknown, width: number, height: number, show_close_button: boolean) => {
+        if (height > 0 && width > 0) {
+            // Note:
+            // Add 30px(= about 2em) to add padding in window, if there is a close button, bit more
+            if (show_close_button) {
+                window.setContentSize(width, height + 40);
+            } else {
+                window.setContentSize(width, height + 52);
+            }
+        }
+    };
+    const on_win_close_req = () => {
+        window.close();
+    };
+    ipc.on('about-window:adjust-window-size', on_win_adjust_req);
+    ipc.on('about-window:close-window', on_win_close_req);
+
     window.once('closed', () => {
         window = null;
+        ipc.removeListener('about-window:adjust-window-size', on_win_adjust_req);
+        ipc.removeListener('about-window:close-window', on_win_close_req);
     });
     window.loadURL(index_html);
 
@@ -161,7 +174,9 @@ export default function openAboutWindow(info_or_img_path: AboutWindowInfo | stri
         const win_title = info.win_options ? info.win_options.title : null;
         delete info.win_options;
         info.win_options = { title: win_title };
-        window.webContents.send('about-window:info', info);
+        const app_name = info.product_name || app.name || app.getName();
+        const version = app.getVersion();
+        window.webContents.send('about-window:info', info, app_name, version);
         if (info.open_devtools) {
             if (process.versions.electron >= '1.4') {
                 window.webContents.openDevTools({ mode: 'detach' });

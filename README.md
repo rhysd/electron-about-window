@@ -99,8 +99,8 @@ $ npm run debug
 | `show_close_button` | If this is a valid string, a close button with this string be displayed. **Optional** | string |
 | `about_page_dir` | Directory path which contains `about.html` which is rendered in 'About this app' window. **Optional** | string |
 | `app` | [app](https://www.electronjs.org/docs/latest/api/app) instance to use. This property is necessary only when using on renderer processes. **Optional** | Electron.App |
-| `BrowserWindow` | Constructor of [BrowserWindow](https://www.electronjs.org/docs/latest/api/browser-window) to use. This property is necessary only when using on renderer processes. **Optional** | Electron.App |
-| `ipcMain` | [ipcMain](https://www.electronjs.org/docs/latest/api/ipc-main) instance to use. This property is necessary only when using on renderer processes. **Optional** | Electron.App |
+| `BrowserWindow` | Constructor of [BrowserWindow](https://www.electronjs.org/docs/latest/api/browser-window) to use. This property is necessary only when using on renderer processes. **Optional** | Electron.BrowserWindow |
+| `ipcMain` | [ipcMain](https://www.electronjs.org/docs/latest/api/ipc-main) instance to use. This property is necessary only when using on renderer processes. **Optional** | Electron.IpcMain |
 
 **Note:** If you set `use_inner_html` to `true`, please ensure that contents don't contain any untrusted external input
 in order to avoid XSS. Be careful.

@@ -4,5 +4,6 @@
 npm-debug.log
 node_modules
 /src/*.ts
+!/src/*.d.ts
 /tsconfig.json
 /tslint.json

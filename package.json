@@ -3,6 +3,7 @@
   "version": "1.15.0",
   "description": "'About App' window for Electron application",
   "main": "src/index.js",
+  "typings": "src/index.d.ts",
   "scripts": {
     "dep": "npm install",
     "build": "tsc -p src/",

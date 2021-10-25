@@ -12,7 +12,8 @@
     "noEmitOnError": true,
     "strictNullChecks": false,
     "target": "es2015",
-    "sourceMap": true
+    "sourceMap": true,
+    "declaration": true
   },
   "include": [
     "**/*.ts"

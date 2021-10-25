@@ -1,3 +1,11 @@
+<a name="v1.15.1"></a>
+# [v1.15.1](https://github.com/rhysd/electron-about-window/releases/tag/v1.15.1) - 25 Oct 2021
+
+- Fix the type definitions file for TypeScript is outdated (thanks @h3poteto, #70)
+
+[Changes][v1.15.1]
+
+
 <a name="v1.15.0"></a>
 # [v1.15.0](https://github.com/rhysd/electron-about-window/releases/tag/v1.15.0) - 02 Oct 2021
 
@@ -64,6 +72,7 @@
 [Changes][v1.12.0]
 
 
+[v1.15.1]: https://github.com/rhysd/electron-about-window/compare/v1.15.0...v1.15.1
 [v1.15.0]: https://github.com/rhysd/electron-about-window/compare/v1.14.0...v1.15.0
 [v1.14.0]: https://github.com/rhysd/electron-about-window/compare/v1.13.4...v1.14.0
 [v1.13.4]: https://github.com/rhysd/electron-about-window/compare/v1.13.3...v1.13.4

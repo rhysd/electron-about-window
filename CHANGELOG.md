@@ -1,3 +1,11 @@
+<a name="v1.15.2"></a>
+# [v1.15.2](https://github.com/rhysd/electron-about-window/releases/tag/v1.15.2) - 02 Nov 2021
+
+- Fix `AboutWindowInfo` type is not found (#71)
+
+[Changes][v1.15.2]
+
+
 <a name="v1.15.1"></a>
 # [v1.15.1](https://github.com/rhysd/electron-about-window/releases/tag/v1.15.1) - 25 Oct 2021
 
@@ -72,6 +80,7 @@
 [Changes][v1.12.0]
 
 
+[v1.15.2]: https://github.com/rhysd/electron-about-window/compare/v1.15.1...v1.15.2
 [v1.15.1]: https://github.com/rhysd/electron-about-window/compare/v1.15.0...v1.15.1
 [v1.15.0]: https://github.com/rhysd/electron-about-window/compare/v1.14.0...v1.15.0
 [v1.14.0]: https://github.com/rhysd/electron-about-window/compare/v1.13.4...v1.14.0

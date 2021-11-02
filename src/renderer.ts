@@ -1,4 +1,5 @@
 import { ipcRenderer, shell } from 'electron';
+import type { AboutWindowInfo } from './index';
 
 ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo, app_name: string, version: string) => {
     // Note: app.getName() was replaced with app.name at Electron v7

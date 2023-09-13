@@ -23,7 +23,7 @@ $ npm install about-window
 
 ## Usage
 
-Only one function is exported as default.  Please see [TypeScript type definition](index.d.ts).
+Only one function is exported as default.  Please see [TypeScript type definition](index.ts).
 The function can be called from both main process and renderer process.
 
 ```typescript

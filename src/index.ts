@@ -23,6 +23,8 @@ export interface AboutWindowInfo {
     copyright?: string;
     homepage?: string;
     description?: string;
+    // if this param is present, we ignore package_json_dir param.
+    package_json?: PackageJson;
     package_json_dir?: string;
     about_page_dir?: string;
     license?: string;
@@ -48,8 +50,12 @@ declare namespace NodeJS {
 
 function loadPackageJson(pkg_path: string): PackageJson {
     try {
+        // some build systems(vite, rollup) may not be able to transform this line into a valid es module statement.
+        // in this case, even the user pass in the right folder, it will throw an error when load the json.
+        // even worse, the error will be caught and handled here, which make it hard to debug.
         return require(pkg_path);
     } catch (e) {
+        console.warn(e);
         return null;
     }
 }
@@ -91,8 +97,13 @@ function detectPackageJson(specified_dir: string, app: Electron.App) {
 }
 
 function injectInfoFromPackageJson(info: AboutWindowInfo, app: Electron.App) {
-    const pkg = detectPackageJson(info.package_json_dir, app);
-    if (pkg === null) {
+    let pkg: PackageJson | null | undefined;
+    if (info.package_json) {
+        pkg = info.package_json;
+    } else {
+        pkg = detectPackageJson(info.package_json_dir, app);
+    }
+    if (pkg == null) {
         // Note: Give up.
         return info;
     }
